@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  *
  * @author Khoa
  */
-public class HomeControll extends HttpServlet {
+public class DetailControll extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,17 +36,25 @@ public class HomeControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
-        DAO dao = new DAO();
-        List<Hang> listH = dao.getAllHang();
-        List<LapTop> list = dao.getAllLaptop();
-        LapTop ListL = dao.getLast();
-        //b2: set data to jsp
-        request.setAttribute("listP",list);
-        request.setAttribute("ListH", listH);
+      String malaptop = request.getParameter("pmalaptop");
+      String maH  = request.getParameter("mahang");
+      DAO dao = new DAO();
+      
+      LapTop p = dao.getDetail(malaptop);
+      
+       List<Hang> listH = dao.getAllHang();
+       LapTop ListL = dao.getLast();
+       List<LapTop> list = dao.getHangLapTops(maH);
+      
+      
+      request.setAttribute("detail", p);
+       request.setAttribute("ListH", listH);
         request.setAttribute("p", ListL);
-        
-        request.getRequestDispatcher("Home.jsp").forward(request, response);
-        
+        request.setAttribute("listP",list);
+        request.setAttribute("tag",maH);
+      
+      request.getRequestDispatcher("Detail.jsp").forward(request, response);
+      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -64,7 +72,7 @@ public class HomeControll extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(HomeControll.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DetailControll.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -82,7 +90,7 @@ public class HomeControll extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(HomeControll.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DetailControll.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -1,12 +1,11 @@
 <%-- 
-    Document   : Home
-    Created on : Apr 16, 2022, 9:57:03 PM
+    Document   : Detail
+    Created on : Apr 18, 2022, 6:26:40 PM
     Author     : Khoa
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,9 +14,40 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!------ Include the above in your HEAD tag ---------->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+         <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .gallery-wrap .img-big-wrap img {
+                height: 450px;
+                width: auto;
+                display: inline-block;
+                cursor: zoom-in;
+            }
+
+
+            .gallery-wrap .img-small-wrap .item-gallery {
+                width: 60px;
+                height: 60px;
+                border: 1px solid #ddd;
+                margin: 7px 2px;
+                display: inline-block;
+                overflow: hidden;
+            }
+
+            .gallery-wrap .img-small-wrap {
+                text-align: center;
+            }
+            .gallery-wrap .img-small-wrap img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: cover;
+                border-radius: 4px;
+                cursor: zoom-in;
+            }
+            .img-big-wrap img{
+                width: 100% !important;
+                height: auto !important;
+            }
+        </style>
     </head>
     <body>
         <!--begin of menu-->
@@ -81,9 +111,12 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
+        
+        
+       
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
                     <div class="card bg-light mb-3">
                         <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i>Hãng Laptop</div>
                         <ul class="list-group category_block">
@@ -102,34 +135,85 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="col-sm-9">
-                    <div class="row">
-                        <c:forEach items="${listP}" var="o">
-                            <div class="col-12 col-md-6 col-lg-4">
-                                <div class="card">
-                                    <img class="card-img-top" src="${o.hinh}" alt="Card image cap">
-                                    <div class="card-body">
-                                        <h4 class="card-title show_txt"><a href="DetailControll?pmalaptop=${o.malaptop}" title="View Product">${o.tenlaptop}</a></h4>
-                                        <p class="card-text show_txt">${o.mota}</p>
+                    <div class="container">
+                        <div class="card">
+                            <div class="row">
+                                <aside class="col-sm-5 border-right">
+                                    <article class="gallery-wrap"> 
+                                        <div class="img-big-wrap">
+                                            <div> <a href="#"><img src="${detail.hinh}"></a></div>
+                                        </div> <!-- slider-product.// -->
+                   
+                                    </article> <!-- gallery-wrap .end// -->
+                                </aside>
+                                <aside class="col-sm-7">
+                                    <article class="card-body p-5">
+                                        <h3 class="title mb-3">${detail.tenlaptop}</h3>
+                                        <p class="price-detail-wrap"> 
+                                            <span class="price h3 text-warning"> 
+                                                <span class="currency">Giá bán: </span><span class="num">${detail.giaban} VNÐ</span>
+                                            </span> 
+                                  
+                                            <!--<span>/per kg</span>--> 
+                                        </p> <!-- price-detail-wrap .// -->
+                                        <dl class="item-property">
+                                            <dt>Mô tả sản phẩm: </dt>
+                                           
+                                            <dd><p>
+                                                   
+                                            <dt>Ram: ${detail.ram},
+                                                CPU: ${detail.cpu}, 
+                                                GPU: ${detail.gpu}, 
+                                                Hardware: ${detail.hardware}, 
+                                                Pin: ${detail.pin}, 
+                                                Màn hình: ${detail.manghing}.
+                                                </dt></br> 
+                                         
+                                                    ${detail.mota} </p></dd>
+                                        </dl>
+<!--                                        <dl class="param param-feature">
+                                            <dt>Model#</dt>
+                                            <dd>12345611</dd>
+                                        </dl>   item-property-hor .// 
+                                        <dl class="param param-feature">
+                                            <dt>Color</dt>
+                                            <dd>Black and white</dd>
+                                        </dl>   item-property-hor .// 
+                                        <dl class="param param-feature">
+                                            <dt>Delivery</dt>
+                                            <dd>Russia, USA, and Europe</dd>
+                                        </dl>   item-property-hor .// -->
+
+                                        <hr>
                                         <div class="row">
-                                            <div class="col">
-                                                <p class="btn btn-danger btn-block">${o.giaban} VNÐ</p>
-                                            </div>
-                                            <div class="col">
-                                                <a href="Cart.jsp" class="btn btn-success btn-block">Thêm vào giỏ hàng</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
+                                            <div class="col-sm-5">
+                                                <dl class="param param-inline">
+                                                    <dt>Quantity: </dt>
+                                                    <dd>
+                                                        <select class="form-control form-control-sm" style="width:70px;">
+                                                            <option> 1 </option>
+                                                            <option> 2 </option>
+                                                            <option> 3 </option>
+                                                        </select>
+                                                    </dd>
+                                                </dl>  <!-- item-property .// -->
+                                            </div> <!-- col.// -->
+                                            
+                                        </div> <!-- row.// -->
+                                        <hr>
+                                        <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
+                                        <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
+                                    </article> <!-- card-body.// -->
+                                </aside> <!-- col.// -->
+                            </div> <!-- row.// -->
+                        </div> <!-- card.// -->
+
+
                     </div>
                 </div>
-
             </div>
         </div>
-
         <!-- Footer -->
         <footer class="text-light">
             <div class="container">
