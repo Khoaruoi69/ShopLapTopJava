@@ -23,7 +23,7 @@
         <!--begin of menu-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="home">LAPTOP</a>
+                <a class="navbar-brand" href="HomeControll">LAPTOP</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -73,7 +73,7 @@
                 <div class="col">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="Home.jsp">Home</a></li>
+                            <li class="breadcrumb-item"><a href="HomeControll">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Category</a></li>
                             <li class="breadcrumb-item active" aria-current="#">Sub-category</li>
                         </ol>
@@ -85,21 +85,20 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="card bg-light mb-3">
-                        <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> Categories</div>
+                        <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i>Hãng Laptop</div>
                         <ul class="list-group category_block">
                             <c:forEach items="${ListH}" var="c">
-                                <li class="list-group-item text-white"><a href="#">${c.tenhang}</a></li>
+                                <li class="list-group-item text-white ${tag==c.mahang?"active":""}"><a href="HangControll?mahang=${c.mahang}">${c.tenhang}</a></li>
                             </c:forEach>
-
                         </ul>
                     </div>
                     <div class="card bg-light mb-3">
-                        <div class="card-header bg-success text-white text-uppercase">Last product</div>
+                        <div class="card-header bg-success text-white text-uppercase">Sản phẩm HOT</div>
                         <div class="card-body">
-                            <img class="img-fluid" src="#" />
-                            <h5 class="card-title">#</h5>
-                            <p class="card-text">$</p>
-                            <p class="bloc_left_price">$</p>
+                            <img class="img-fluid" src="${p.hinh}" />
+                            <h5 class="card-title">${p.tenlaptop}</h5>
+                            <p class="card-text">${p.mota}</p>
+                            <p class="bloc_left_price">${p.giaban} VNÐ</p>
                         </div>
                     </div>
                 </div>
@@ -111,14 +110,14 @@
                                 <div class="card">
                                     <img class="card-img-top" src="${o.hinh}" alt="Card image cap">
                                     <div class="card-body">
-                                        <h4 class="card-title show_txt"><a href="#" title="View Product">${o.tenlaptop}</a></h4>
+                                        <h4 class="card-title show_txt"><a href="DetailControll?pmalaptop=${o.malaptop}" title="View Product">${o.tenlaptop}</a></h4>
                                         <p class="card-text show_txt">${o.mota}</p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger btn-block">${o.giaban} $</p>
+                                                <p class="btn btn-danger btn-block">${o.giaban} VNÐ</p>
                                             </div>
                                             <div class="col">
-                                                <a href="Cart.jsp" class="btn btn-success btn-block">Add to cart</a>
+                                                <a href="Cart.jsp" class="btn btn-success btn-block">Thêm vào giỏ hàng</a>
                                             </div>
                                         </div>
                                     </div>

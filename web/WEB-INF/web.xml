@@ -4,13 +4,37 @@
         <servlet-name>HomeControll</servlet-name>
         <servlet-class>controll.HomeControll</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HangControll</servlet-name>
+        <servlet-class>controll.HangControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Detail</servlet-name>
+        <servlet-class>controll.Detail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetailControll</servlet-name>
+        <servlet-class>controll.DetailControll</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>Home.jsp</welcome-file>
+        <welcome-file>Detail.jsp</welcome-file>
     </welcome-file-list>
+    <servlet-mapping>
+        <servlet-name>HangControll</servlet-name>
+        <url-pattern>/HangControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Detail</servlet-name>
+        <url-pattern>/Detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetailControll</servlet-name>
+        <url-pattern>/DetailControll</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

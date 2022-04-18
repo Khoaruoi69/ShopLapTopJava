@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package entity;
+import java.math.BigDecimal;
 import java.util.Date;
 import microsoft.sql.DateTimeOffset;
 
@@ -13,7 +14,7 @@ import microsoft.sql.DateTimeOffset;
 public class LapTop {
     private int malaptop;
     private String tenlaptop;
-    private float giaban;
+    private BigDecimal giaban;
     private String mota;
     private String hinh;
     private int mahang;
@@ -31,7 +32,7 @@ public class LapTop {
     public LapTop() {
     }
 
-    public LapTop(int malaptop, String tenlaptop, float giaban, String mota, String hinh, int mahang, int manhucau, String cpu, String gpu, String ram, String hardware, String manghing, Date ngaycapnhap, int soluong, String pin, boolean trangthai) {
+    public LapTop(int malaptop, String tenlaptop, BigDecimal giaban, String mota, String hinh, int mahang, int manhucau, String cpu, String gpu, String ram, String hardware, String manghing, Date ngaycapnhap, int soluong, String pin, boolean trangthai) {
         this.malaptop = malaptop;
         this.tenlaptop = tenlaptop;
         this.giaban = giaban;
@@ -60,7 +61,7 @@ public class LapTop {
         return tenlaptop;
     }
 
-    public float getGiaban() {
+    public BigDecimal getGiaban() {
         return giaban;
     }
 
@@ -124,7 +125,7 @@ public class LapTop {
         this.tenlaptop = tenlaptop;
     }
 
-    public void setGiaban(float giaban) {
+    public void setGiaban(BigDecimal giaban) {
         this.giaban = giaban;
     }
 

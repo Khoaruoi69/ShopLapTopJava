@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  *
  * @author Khoa
  */
-public class HomeControll extends HttpServlet {
+public class HangControll extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,17 +36,18 @@ public class HomeControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
+        String maH  = request.getParameter("mahang");
+        // da lay dc Hang
         DAO dao = new DAO();
-        List<Hang> listH = dao.getAllHang();
-        List<LapTop> list = dao.getAllLaptop();
-        LapTop ListL = dao.getLast();
-        //b2: set data to jsp
-        request.setAttribute("listP",list);
+         List<Hang> listH = dao.getAllHang();
+         LapTop ListL = dao.getLast();
+        List<LapTop> list = dao.getHangLapTops(maH);
+        
         request.setAttribute("ListH", listH);
         request.setAttribute("p", ListL);
-        
+        request.setAttribute("listP",list);
+        request.setAttribute("tag",maH);
         request.getRequestDispatcher("Home.jsp").forward(request, response);
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -64,7 +65,7 @@ public class HomeControll extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(HomeControll.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HangControll.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -82,7 +83,7 @@ public class HomeControll extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(HomeControll.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HangControll.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
