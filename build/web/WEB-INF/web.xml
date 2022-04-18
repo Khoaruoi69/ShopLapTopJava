@@ -16,6 +16,14 @@
         <servlet-name>DetailControll</servlet-name>
         <servlet-class>controll.DetailControll</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SearchControll</servlet-name>
+        <servlet-class>controll.SearchControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginControll</servlet-name>
+        <servlet-class>controll.LoginControll</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
@@ -34,6 +42,14 @@
     <servlet-mapping>
         <servlet-name>DetailControll</servlet-name>
         <url-pattern>/DetailControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchControll</servlet-name>
+        <url-pattern>/SearchControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginControll</servlet-name>
+        <url-pattern>/LoginControll</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
