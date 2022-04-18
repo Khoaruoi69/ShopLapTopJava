@@ -8,7 +8,8 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,10 +23,12 @@
     </head>
     <body>
         <div id="logreg-forms">
-            <form class="form-signin" action="login" method="post">
-                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+            <form class="form-signin" action="LoginControll" method="post">
+                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">ﾄ斉ハg nh蘯ｭp </h1>
                 
-                <input name="user"  type="text" id="inputEmail" class="form-control" placeholder="Username" required="" autofocus="">
+                <p class="text-danger">${mess}</p>
+                
+                <input name="user"  type="text" id="inputEmail" class="form-control" placeholder="Sﾃ慎" required="" autofocus="">
                 <input name="pass"  type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
 
                 <div class="form-group form-check">
@@ -33,20 +36,20 @@
                     <label class="form-check-label" for="exampleCheck1">Remember me</label>
                 </div>
 
-                <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+                <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> ﾄ斉ハg nh蘯ｭp </button>
                 <hr>
-                <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> Sign up New Account</button>
+                <button class="btn btn-primary btn-block" type="button" id="btn-signup"><i class="fas fa-user-plus"></i> ﾄ斉ハg kﾃｽ tﾃi kho蘯｣n </button>
             </form>
 
-            <form action="signup" method="post" class="form-signup">
-                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign up</h1>
+            <form action="SignupControll" method="post" class="form-signup">
+                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> ﾄ斉ハg kﾃｽ </h1>
                 <input name="user" type="text" id="user-name" class="form-control" placeholder="User name" required="" autofocus="">
                 <input name="email" type="text" id="email" class="form-control" placeholder="email" required="" autofocus="">
-                <input name="SﾐT" type="text" id="SﾐT" class="form-control" placeholder="SﾐT" required="" autofocus="">
+                <input name="SDT" type="text" id="SDT" class="form-control" placeholder="Sﾃ慎" required="" autofocus="">
                 <input name="pass" type="password" id="user-pass" class="form-control" placeholder="Password" required autofocus="">
                 <input name="repass" type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
 
-                <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
+                <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> ﾄ斉ハg kﾃｽ  </button>
                 <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
             </form>
             <br>

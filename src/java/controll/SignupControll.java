@@ -18,7 +18,7 @@ import java.io.PrintWriter;
  *
  * @author Khoa
  */
-public class LoginControll extends HttpServlet {
+public class SignupControll extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,17 +32,28 @@ public class LoginControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String username = request.getParameter("user");
-        String password = request.getParameter("pass");
-         DAO dao = new DAO();
-         KhachHang kh = dao.login(username, password);
-         if(kh==null){
-             request.setAttribute("mess", "Nhập sai thông tin đăng nhập !!!");
-             request.getRequestDispatcher("Login.jsp").forward(request, response); // c1: day du lieu qua trang ( mang theo du lieu )
-         }else{
-          response.sendRedirect("HomeControll"); // c2: ko dây du lieu qua trang 
-          //   request.getRequestDispatcher("HomeControll").forward(request, response);
-         }
+        String user = request.getParameter("user");
+        String email = request.getParameter("email");
+        String SDT = request.getParameter("SDT");
+        String pass = request.getParameter("pass");
+        String repass = request.getParameter("repass");
+        if(!pass.equals(repass)){
+            response.sendRedirect("Login.jsp");
+        }  
+
+        else{
+            DAO dao = new DAO();
+            KhachHang kh = dao.checkAccountExits(SDT);
+            if(kh==null){
+                // dc sign up
+                dao.Signup(user, pass, email, SDT);
+                response.sendRedirect("HomeControll");
+            }
+            else{
+                response.sendRedirect("Login.jsp");
+            }
+        }
+        // sign up 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

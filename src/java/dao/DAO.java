@@ -6,6 +6,7 @@ package dao;
 
 import Context.DBContext;
 import entity.Hang;
+import entity.KhachHang;
 import entity.LapTop;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,6 +23,8 @@ public class DAO {
     Connection conn = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
+    
+    // lay tat ca laptop .................................
     public List<LapTop> getAllLaptop() {
         List<LapTop> list = new ArrayList<>();
         String query = "select * from Laptop";
@@ -53,6 +56,8 @@ public class DAO {
         }
         return list;
     }
+    // Lay các hãng laoptop ..............................
+    
     public List<Hang> getAllHang() throws Exception{
         List<Hang> list = new ArrayList<>();
         String query ="select * from Hang";
@@ -73,6 +78,7 @@ public class DAO {
         }
         return list;
     }
+    // lay san pham cuoi cung .................................
     public LapTop getLast() {
         String query = "select top 1 * from Laptop\n"
                      + "order by malaptop desc";
@@ -103,6 +109,7 @@ public class DAO {
         }
         return null;
     }
+    // Cac laptop theo hang ..............................
     public List<LapTop> getHangLapTops(String mahang) {
         List<LapTop> list = new ArrayList<>();
         String query = "select * from Laptop\n"
@@ -206,6 +213,68 @@ public class DAO {
         } catch (Exception e) {
         }
         return list;
+    }
+    // Login .............................
+    
+    public KhachHang login(String user, String pass){
+        String query = "select * from KhachHang\n" +
+                       "where dienthoai =? and matkhau= ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps= conn.prepareStatement(query);
+            ps.setString(1, user);
+            ps.setString(2, pass);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                return new KhachHang(
+                rs.getInt(1),
+                rs.getString(2),
+                rs.getString(3),
+                rs.getString(4),
+                rs.getString(5));
+            }
+                    
+        } catch (Exception e) {
+        }
+        return  null;
+    }
+    //  check account exxit 
+    
+    public KhachHang checkAccountExits (String dienthoai){
+        String query = "select * from KhachHang\n" +
+                       "where dienthoai =?";
+        try {
+            conn = new DBContext().getConnection();
+            ps= conn.prepareStatement(query);
+            ps.setString(1, dienthoai);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                return new KhachHang(
+                rs.getInt(1),
+                rs.getString(2),
+                rs.getString(3),
+                rs.getString(4),
+                rs.getString(5));
+            }
+                    
+        } catch (Exception e) {
+        }
+        return  null;
+    }
+    // SIgn UPP
+    public  void Signup(String user, String pass, String email, String dienthoai){
+        String query ="insert into KhachHang\n"
+                      +"values(?,?,?,?)";
+        try {
+            conn = new DBContext().getConnection();
+            ps= conn.prepareStatement(query);
+            ps.setString(1, user);
+            ps.setString(2, pass);
+            ps.setString(3, email);
+            ps.setString(4, dienthoai);             
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
     }
     public static void main(String[] args) {
         DAO dao = new DAO();
