@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-12 copyright mt-3">
                         <p class="float-left">
-                            <a href="Home.jsp">Back to top</a>
+                            <a href="HomeControll">Back to top</a>
                         </p>
                         <p class="text-right text-muted">created with <i class="fa fa-heart"></i> by <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"><i>Khoa & Quý</i></a> | <span>v. 1.0</span></p>
                     </div>

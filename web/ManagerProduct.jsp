@@ -25,6 +25,10 @@
                 width: 200px;
                 height: 120px;
             }
+            .container{
+                width: 1245px;
+            }
+            
         </style>
     <body>
         <div class="container">
@@ -36,7 +40,7 @@
                         </div>
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-                            <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>						
+                           						
                         </div>
                     </div>
                 </div>
@@ -49,15 +53,25 @@
                                     <label for="selectAll"></label>
                                 </span>
                             </th>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Image</th>
-                            <th>Price</th>
+                            <th>Mã</th>
+                            <th>Tên </th>
+                            <th>Hình</th>
+                            <th>Giá bán</th>
+                            <th>CPU</th>
+                            <th>GPU</th><!-- comment -->
+                            <th>RAM</th>
+                            <th>Hardware</th>
+                            <th>Pin</th>
+                            <th>Màn hình</th>
+                            <th>số lượng tồn</th>
                             <th>Actions</th>
-                        </tr>
+                            
+                 </tr>
+                        
                     </thead>
-                    <tbody>
+                  
                         <c:forEach items="${listP}" var="o">
+                             <tbody>
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
@@ -65,19 +79,28 @@
                                         <label for="checkbox1"></label>
                                     </span>
                                 </td>
-                                <td>${o.id}</td>
-                                <td>${o.name}</td>
+                                <td>${o.malaptop}</td>
+                                <td>${o.tenlaptop}</td>
                                 <td>
-                                    <img src="${o.image}">
+                                    <img src="${o.hinh}">
                                 </td>
-                                <td>${o.price} $</td>
+                                <td>${o.giaban}</td>
+                                <td>${o.cpu}</td>
+                                <td>${o.gpu}</td>
+                                <td>${o.ram}</td>
+                                <td>${o.hardware}</td>
+                                <td>${o.pin}</td>
+                                <td>${o.manghing}</td>
+                                <td>${o.soluong}</td>
+                                
                                 <td>
-                                    <a href="#editEmployeeModal"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    <a href="LoadControll?pmalaptop=${o.malaptop}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href="DeleteControll?pmalaptop=${o.malaptop}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
+                            </tbody>
                         </c:forEach>
-                    </tbody>
+                   
                 </table>
                 <div class="clearfix">
                     <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
@@ -97,37 +120,66 @@
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="add" method="post">
+                    <form action="AddControll" method="post">
                         <div class="modal-header">						
                             <h4 class="modal-title">Add Product</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
                             <div class="form-group">
-                                <label>Name</label>
+                                <label>Tên Laptop</label>
                                 <input name="name" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Image</label>
+                                <label>Hình</label>
                                 <input name="image" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Price</label>
+                                <label>Giá bán</label>
                                 <input name="price" type="text" class="form-control" required>
                             </div>
+                             <div class="form-group">
+                                <label>CPU</label>
+                                <input name="CPU" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>GPU</label>
+                                <input name="GPU" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>RAM</label>
+                                <input name="RAM" type="text" class="form-control" required>
+                             </div>
                             <div class="form-group">
-                                <label>Title</label>
-                                <textarea name="title" class="form-control" required></textarea>
+                                <label>Hardware</label>
+                                <input name="hardware" type="text" class="form-control" required>
+                             </div><!-- comment -->
+                              <div class="form-group">
+                                <label>Pin</label>
+                                <input name="pin" type="text" class="form-control" required>
+                            </div>
+                              <div class="form-group">
+                                <label>Màn hình</label>
+                                <input name="manhinh" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Description</label>
-                                <textarea name="description" class="form-control" required></textarea>
+                                <label>Mô tả</label>
+                                <textarea name="mota" class="form-control" required></textarea>
                             </div>
+                           <div class="form-group">
+                                <label>Trạng thái</label>
+                                <input name="trangthai" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>Số lượng tồn</label>
+                                <input name="slt" type="text" class="form-control" required>
+                            </div>
+                             
                             <div class="form-group">
-                                <label>Category</label>
-                                <select name="category" class="form-select" aria-label="Default select example">
-                                    <c:forEach items="${listC}" var="o">
-                                        <option value="${o.id}">${o.name}</option>
+                                <label>Hãng Laptop</label>
+                                <select name="hang" class="form-select" aria-label="Default select example">
+                                    <c:forEach items="${ListH}" var="o">
+                                        <option value="${o.mahang}">${o.tenhang}</otption>
                                     </c:forEach>
                                 </select>
                             </div>
@@ -141,6 +193,11 @@
                 </div>
             </div>
         </div>
+        
+        
+        
+        
+        
         <!-- Edit Modal HTML -->
         <div id="editEmployeeModal" class="modal fade">
             <div class="modal-dialog">
@@ -152,21 +209,63 @@
                         </div>
                         <div class="modal-body">					
                             <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" class="form-control" required>
+                                <label>Tên Laptop</label>
+                                <input value="${detail.tenlaptop}" name="name" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" required>
+                                <label>Hình</label>
+                                <input value="${detail.hinh}" name="image" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Address</label>
-                                <textarea class="form-control" required></textarea>
+                                <label>Giá bán</label>
+                                <input value="${detail.giaban}"name="price" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>CPU</label>
+                                <input value="${detail.cpu}" name="CPU" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>GPU</label>
+                                <input value="${detail.gpu}" name="GPU" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>RAM</label>
+                                <input value="${detail.ram}" name="RAM" type="text" class="form-control" required>
+                             </div>
+                            <div class="form-group">
+                                <label>Hardware</label>
+                                <input value="${detail.hardwave}" name="hardware" type="text" class="form-control" required>
+                             </div><!-- comment -->
+                              <div class="form-group">
+                                <label>Pin</label>
+                                <input value="${detail.pin}" name="pin" type="text" class="form-control" required>
+                            </div>
+                              <div class="form-group">
+                                <label>Màn hình</label>
+                                <input value="${detail.manghing}" name="manhinh" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label>Phone</label>
-                                <input type="text" class="form-control" required>
-                            </div>					
+                                <label>Mô tả</label>
+                                <textarea value="${detail.mota}" name="mota" class="form-control" required></textarea>
+                            </div>
+                           <div class="form-group">
+                                <label>Trạng thái</label>
+                                <input value="${detail.trangthai}" name="trangthai" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>Số lượng tồn</label>
+                                <input value="${detail.soluong}" name="slt" type="text" class="form-control" required>
+                            </div>
+                             
+                            <div class="form-group">
+                                <label>Hãng Laptop</label>
+                                <select name="hang" class="form-select" aria-label="Default select example">
+                                    <c:forEach items="${ListH}" var="o">
+                                        <option value="${o.mahang}">${o.tenhang}</otption>
+                                    </c:forEach>
+                                </select>
+                            </div>
+
                         </div>
                         <div class="modal-footer">
                             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -176,27 +275,9 @@
                 </div>
             </div>
         </div>
+                            
         <!-- Delete Modal HTML -->
-        <div id="deleteEmployeeModal" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form>
-                        <div class="modal-header">						
-                            <h4 class="modal-title">Delete Product</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        </div>
-                        <div class="modal-body">					
-                            <p>Are you sure you want to delete these Records?</p>
-                            <p class="text-warning"><small>This action cannot be undone.</small></p>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-danger" value="Delete">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
         <script src="js/manager.js" type="text/javascript"></script>
         <script>
                

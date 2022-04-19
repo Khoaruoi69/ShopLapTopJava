@@ -12,19 +12,19 @@ import microsoft.sql.DateTimeOffset;
  * @author Khoa
  */
 public class LapTop {
-    private int malaptop;
+  
+
+     private int malaptop;
     private String tenlaptop;
     private BigDecimal giaban;
     private String mota;
     private String hinh;
     private int mahang;
-    private int manhucau;
     private String cpu;
     private String gpu;
     private String ram;
     private String hardware;
     private String manghing;
-    private Date ngaycapnhap;
     private int soluong;
     private String pin;
     private boolean trangthai;
@@ -32,26 +32,22 @@ public class LapTop {
     public LapTop() {
     }
 
-    public LapTop(int malaptop, String tenlaptop, BigDecimal giaban, String mota, String hinh, int mahang, int manhucau, String cpu, String gpu, String ram, String hardware, String manghing, Date ngaycapnhap, int soluong, String pin, boolean trangthai) {
+    public LapTop(int malaptop, String tenlaptop, BigDecimal giaban, String mota, String hinh, int mahang, String cpu, String gpu, String ram, String hardware, String manghing, int soluong, String pin, boolean trangthai) {
         this.malaptop = malaptop;
         this.tenlaptop = tenlaptop;
         this.giaban = giaban;
         this.mota = mota;
         this.hinh = hinh;
         this.mahang = mahang;
-        this.manhucau = manhucau;
         this.cpu = cpu;
         this.gpu = gpu;
         this.ram = ram;
         this.hardware = hardware;
         this.manghing = manghing;
-        this.ngaycapnhap = ngaycapnhap;
         this.soluong = soluong;
         this.pin = pin;
         this.trangthai = trangthai;
     }
-
-  
 
     public int getMalaptop() {
         return malaptop;
@@ -77,10 +73,6 @@ public class LapTop {
         return mahang;
     }
 
-    public int getManhucau() {
-        return manhucau;
-    }
-
     public String getCpu() {
         return cpu;
     }
@@ -99,10 +91,6 @@ public class LapTop {
 
     public String getManghing() {
         return manghing;
-    }
-
-    public Date getNgaycapnhap() {
-        return ngaycapnhap;
     }
 
     public int getSoluong() {
@@ -141,10 +129,6 @@ public class LapTop {
         this.mahang = mahang;
     }
 
-    public void setManhucau(int manhucau) {
-        this.manhucau = manhucau;
-    }
-
     public void setCpu(String cpu) {
         this.cpu = cpu;
     }
@@ -165,10 +149,6 @@ public class LapTop {
         this.manghing = manghing;
     }
 
-    public void setNgaycapnhap(Date ngaycapnhap) {
-        this.ngaycapnhap = ngaycapnhap;
-    }
-
     public void setSoluong(int soluong) {
         this.soluong = soluong;
     }
@@ -180,6 +160,10 @@ public class LapTop {
     public void setTrangthai(boolean trangthai) {
         this.trangthai = trangthai;
     }
-    
+
+    @Override
+    public String toString() {
+        return "LapTop{" + "malaptop=" + malaptop + ", tenlaptop=" + tenlaptop + ", giaban=" + giaban + ", mota=" + mota + ", hinh=" + hinh + ", mahang=" + mahang + ", cpu=" + cpu + ", gpu=" + gpu + ", ram=" + ram + ", hardware=" + hardware + ", manghing=" + manghing + ", soluong=" + soluong + ", pin=" + pin + ", trangthai=" + trangthai + '}';
+    }
     
 }

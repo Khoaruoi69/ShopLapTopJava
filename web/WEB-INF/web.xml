@@ -28,12 +28,36 @@
         <servlet-name>SignupControll</servlet-name>
         <servlet-class>controll.SignupControll</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutControll</servlet-name>
+        <servlet-class>controll.LogoutControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagerControll</servlet-name>
+        <servlet-class>controll.ManagerControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteControll</servlet-name>
+        <servlet-class>controll.DeleteControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddControll</servlet-name>
+        <servlet-class>controll.AddControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadControll</servlet-name>
+        <servlet-class>controll.LoadControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditControll</servlet-name>
+        <servlet-class>controll.EditControll</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>Detail.jsp</welcome-file>
+        <welcome-file>Edit.jsp</welcome-file>
     </welcome-file-list>
     <servlet-mapping>
         <servlet-name>HangControll</servlet-name>
@@ -58,6 +82,30 @@
     <servlet-mapping>
         <servlet-name>SignupControll</servlet-name>
         <url-pattern>/SignupControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutControll</servlet-name>
+        <url-pattern>/LogoutControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerControll</servlet-name>
+        <url-pattern>/ManagerControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteControll</servlet-name>
+        <url-pattern>/DeleteControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddControll</servlet-name>
+        <url-pattern>/AddControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadControll</servlet-name>
+        <url-pattern>/LoadControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditControll</servlet-name>
+        <url-pattern>/EditControll</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

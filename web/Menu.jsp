@@ -4,6 +4,7 @@
     Author     : Khoa
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <!--begin of menu-->
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -15,18 +16,36 @@
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
                     <ul class="navbar-nav m-auto">
+                        <c:if test="${sessionScope.acc.admin== true}">
                         <li class="nav-item">
+                            
                             <a class="nav-link" href="#">Manager Account</a>
                         </li>
+                        </c:if>
+                        
+                        <c:if test="${sessionScope.acc.sell== true}">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Hello Alias</a>
+                            <a class="nav-link" href="ManagerControll">Manager Product</a>
                         </li>
+                    </c:if>
+                        <!-- Dung session hien login logout  -->
+                        <c:if test="${sessionScope.acc != null}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Hello ${sessionScope.acc.hoten}</a>
+                            </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
+                            <a class="nav-link" href="LogoutControll">Đăng xuất</a>
                         </li>
+                        </c:if>
+                        
+                        <c:if test="${sessionScope.acc == null}">
+
                         <li class="nav-item">
-                            <a class="nav-link" href="Login.jsp">Login</a>
+                            <a class="nav-link" href="Login.jsp">Đăng nhập</a>
                         </li>
+                        </c:if>
+                        
+                        
                     </ul>
 
                     <form action="SearchControll" method="post" class="form-inline my-2 my-lg-0">
