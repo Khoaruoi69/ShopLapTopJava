@@ -5,21 +5,20 @@
 package controll;
 
 import dao.DAO;
-import entity.Account;
-import entity.Account;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigDecimal;
 
 
 /**
  *
  * @author Khoa
  */
-public class SignupControll extends HttpServlet {
+public class EditControll extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,28 +32,26 @@ public class SignupControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("user");
-        String email = request.getParameter("email");
-        String SDT = request.getParameter("SDT");
-        String pass = request.getParameter("pass");
-        String repass = request.getParameter("repass");
-        if(!pass.equals(repass)){
-            response.sendRedirect("Login.jsp");
-        }  
-
-        else{
-            DAO dao = new DAO();
-            Account kh = dao.checkAccountExits(SDT);
-            if(kh==null){
-                // dc sign up
-                dao.Signup(user, pass, email, SDT);
-                response.sendRedirect("HomeControll");
-            }
-            else{
-                response.sendRedirect("Login.jsp");
-            }
-        }
-        // sign up 
+        int malaptop =Integer.parseInt(request.getParameter("malaptop"));
+      String name = request.getParameter("name");
+      String image = request.getParameter("image");
+      BigDecimal giaban =BigDecimal.valueOf(Double.parseDouble(request.getParameter("price")));
+      String CPU = request.getParameter("CPU");
+      String GPU = request.getParameter("GPU");
+      String RAM = request.getParameter("RAM");
+      String Hardware = request.getParameter("hardware");
+      String Pin = request.getParameter("pin");
+      String manhinh = request.getParameter("manhinh");
+      String mota = request.getParameter("mota");
+      boolean trangthai = Boolean.parseBoolean(request.getParameter("trangthai"));
+      int slt = Integer.parseInt(request.getParameter("slt"));
+      int hang = Integer.parseInt(request.getParameter("hang"));
+      
+      
+      DAO dao =new DAO();
+      dao.EditProduct(name, giaban, mota, image, hang, CPU, GPU, RAM, Hardware, manhinh, slt, Pin, trangthai, malaptop);
+      
+      response.sendRedirect("ManagerControll");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

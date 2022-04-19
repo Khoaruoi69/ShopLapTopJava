@@ -8,26 +8,30 @@ package entity;
  *
  * @author Khoa
  */
-public class KhachHang {
-    private int makh;
+public class Account {
+    private int maacc;
     private String hoten;
     private String matkhau;
     private  String email;
     private String dienthoai;
+    private boolean admin;
+    private boolean sell;
 
-    public KhachHang() {
+    public Account() {
     }
 
-    public KhachHang(int makh, String hoten, String matkhau, String email, String dienthoai) {
-        this.makh = makh;
+    public Account(int maacc, String hoten, String matkhau, String email, String dienthoai, boolean admin, boolean sell) {
+        this.maacc = maacc;
         this.hoten = hoten;
         this.matkhau = matkhau;
         this.email = email;
         this.dienthoai = dienthoai;
+        this.admin = admin;
+        this.sell = sell;
     }
 
-    public int getMakh() {
-        return makh;
+    public int getMaacc() {
+        return maacc;
     }
 
     public String getHoten() {
@@ -46,8 +50,16 @@ public class KhachHang {
         return dienthoai;
     }
 
-    public void setMakh(int makh) {
-        this.makh = makh;
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public boolean isSell() {
+        return sell;
+    }
+
+    public void setMaacc(int maacc) {
+        this.maacc = maacc;
     }
 
     public void setHoten(String hoten) {
@@ -64,6 +76,19 @@ public class KhachHang {
 
     public void setDienthoai(String dienthoai) {
         this.dienthoai = dienthoai;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public void setSell(boolean sell) {
+        this.sell = sell;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" + "maacc=" + maacc + ", hoten=" + hoten + ", matkhau=" + matkhau + ", email=" + email + ", dienthoai=" + dienthoai + ", admin=" + admin + ", sell=" + sell + '}';
     }
     
 }

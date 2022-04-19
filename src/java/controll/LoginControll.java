@@ -5,11 +5,13 @@
 package controll;
 
 import dao.DAO;
-import entity.KhachHang;
+import entity.Account;
+import entity.Account;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -35,11 +37,14 @@ public class LoginControll extends HttpServlet {
         String username = request.getParameter("user");
         String password = request.getParameter("pass");
          DAO dao = new DAO();
-         KhachHang kh = dao.login(username, password);
+         Account kh = dao.login(username, password);
          if(kh==null){
              request.setAttribute("mess", "Nhập sai thông tin đăng nhập !!!");
              request.getRequestDispatcher("Login.jsp").forward(request, response); // c1: day du lieu qua trang ( mang theo du lieu )
          }else{
+             HttpSession session = request.getSession();
+             session.setAttribute("acc", kh);
+             //session.setMaxInactiveInterval(10); // chinh co session ton tai duoc 10s
           response.sendRedirect("HomeControll"); // c2: ko dây du lieu qua trang 
           //   request.getRequestDispatcher("HomeControll").forward(request, response);
          }

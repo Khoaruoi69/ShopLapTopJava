@@ -6,12 +6,14 @@ package dao;
 
 import Context.DBContext;
 import entity.Hang;
-import entity.KhachHang;
+import entity.Account;
 import entity.LapTop;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import sun.misc.Signal;
 
@@ -40,16 +42,14 @@ public class DAO {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
+                        rs.getString(7),
                         rs.getString(8),
                         rs.getString(9),
                         rs.getString(10),
                         rs.getString(11),
-                        rs.getString(12),
-                        rs.getDate(13),
-                        rs.getInt(14),
-                        rs.getString(15),
-                        rs.getBoolean(16))
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getBoolean(14))
                 );
             }
         } catch (Exception e) {
@@ -88,22 +88,20 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                return new LapTop(
-                        rs.getInt(1),
+                       rs.getInt(1),
                         rs.getString(2),
                         rs.getBigDecimal(3),
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
+                        rs.getString(7),
                         rs.getString(8),
                         rs.getString(9),
                         rs.getString(10),
                         rs.getString(11),
-                        rs.getString(12),
-                        rs.getDate(13),
-                        rs.getInt(14),
-                        rs.getString(15),
-                        rs.getBoolean(16));
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getBoolean(14));
             }
         } catch (Exception e) {
         }
@@ -127,16 +125,14 @@ public class DAO {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
+                        rs.getString(7),
                         rs.getString(8),
                         rs.getString(9),
                         rs.getString(10),
                         rs.getString(11),
-                        rs.getString(12),
-                        rs.getDate(13),
-                        rs.getInt(14),
-                        rs.getString(15),
-                        rs.getBoolean(16))
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getBoolean(14))
                 );
             }
         } catch (Exception e) {
@@ -157,22 +153,20 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                return new LapTop(
-                        rs.getInt(1),
+                       rs.getInt(1),
                         rs.getString(2),
                         rs.getBigDecimal(3),
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
+                        rs.getString(7),
                         rs.getString(8),
                         rs.getString(9),
                         rs.getString(10),
                         rs.getString(11),
-                        rs.getString(12),
-                        rs.getDate(13),
-                        rs.getInt(14),
-                        rs.getString(15),
-                        rs.getBoolean(16));
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getBoolean(14));
             }
         } catch (Exception e) {
         }
@@ -192,22 +186,20 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new LapTop(
-                        rs.getInt(1),
+                       rs.getInt(1),
                         rs.getString(2),
                         rs.getBigDecimal(3),
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
+                        rs.getString(7),
                         rs.getString(8),
                         rs.getString(9),
                         rs.getString(10),
                         rs.getString(11),
-                        rs.getString(12),
-                        rs.getDate(13),
-                        rs.getInt(14),
-                        rs.getString(15),
-                        rs.getBoolean(16))
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getBoolean(14))
                 );
             }
         } catch (Exception e) {
@@ -216,8 +208,8 @@ public class DAO {
     }
     // Login .............................
     
-    public KhachHang login(String user, String pass){
-        String query = "select * from KhachHang\n" +
+    public Account login(String user, String pass){
+        String query = "select * from Account\n" +
                        "where dienthoai =? and matkhau= ?";
         try {
             conn = new DBContext().getConnection();
@@ -226,12 +218,14 @@ public class DAO {
             ps.setString(2, pass);
             rs=ps.executeQuery();
             while(rs.next()){
-                return new KhachHang(
+                return new Account(
                 rs.getInt(1),
                 rs.getString(2),
                 rs.getString(3),
                 rs.getString(4),
-                rs.getString(5));
+                rs.getString(5),
+                rs.getBoolean(6),
+                rs.getBoolean(7));
             }
                     
         } catch (Exception e) {
@@ -240,8 +234,8 @@ public class DAO {
     }
     //  check account exxit 
     
-    public KhachHang checkAccountExits (String dienthoai){
-        String query = "select * from KhachHang\n" +
+    public Account checkAccountExits (String dienthoai){
+        String query = "select * from Account\n" +
                        "where dienthoai =?";
         try {
             conn = new DBContext().getConnection();
@@ -249,12 +243,14 @@ public class DAO {
             ps.setString(1, dienthoai);
             rs=ps.executeQuery();
             while(rs.next()){
-                return new KhachHang(
+                return new Account(
                 rs.getInt(1),
                 rs.getString(2),
                 rs.getString(3),
                 rs.getString(4),
-                rs.getString(5));
+                rs.getString(5),
+                rs.getBoolean(6),
+                rs.getBoolean(7));
             }
                     
         } catch (Exception e) {
@@ -263,7 +259,7 @@ public class DAO {
     }
     // SIgn UPP
     public  void Signup(String user, String pass, String email, String dienthoai){
-        String query ="insert into KhachHang\n"
+        String query ="insert into Account\n"
                       +"values(?,?,?,?)";
         try {
             conn = new DBContext().getConnection();
@@ -273,6 +269,121 @@ public class DAO {
             ps.setString(3, email);
             ps.setString(4, dienthoai);             
             ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+    
+    // quan ly san pham 
+        public List<LapTop> getProduct() {
+        List<LapTop> list = new ArrayList<>();
+        String query = "select * from Laptop";
+        try {
+            conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new LapTop(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getBigDecimal(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getBoolean(14))
+                );
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+        
+        // Delete 
+    public void deleteProduct(String pmalaptop){
+        String query = "delete from Laptop\n"+
+                        " where malaptop = ?";
+        try {
+             conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, pmalaptop);
+            ps.executeUpdate();
+            
+        } catch (Exception e) {
+        }
+    }    
+        // Insert du lieu 
+    public void insertProduct(String tenlaptop, BigDecimal giaban, String mota, String hinh, int mahang, String cpu, String gpu, String ram, String hardware, String manghing, int soluong, String pin, boolean trangthai){
+        String query ="INSERT  [dbo].[Laptop] \n" +
+                     "( [tenlaptop], [giaban], [mota] ,[hinh], [mahang], [cpu] , [gpu], [ram], [hardware], [manhinh], [soluongton]\n" +
+                     ",[pin], [trangthai] ) VALUES( ?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        
+        try {
+             conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,tenlaptop);
+            ps.setBigDecimal(2,giaban);
+            ps.setString(3, mota);
+            ps.setString(4, hinh);
+            ps.setInt(5,mahang);
+            ps.setString(6,cpu);
+            ps.setString(7,gpu);
+            ps.setString(8,ram);
+            ps.setString(9,hardware);
+            ps.setString(10,manghing);
+            ps.setInt(11,soluong);
+            ps.setString(12,pin);
+            ps.setBoolean(13,trangthai);
+            
+            ps.executeUpdate();
+            
+        } catch (Exception e) {
+        }
+    }
+    
+    // edit producrt ................................
+    public void EditProduct(String tenlaptop, BigDecimal giaban, String mota, String hinh, int mahang, String cpu, String gpu, String ram, String hardware, String manghing, int soluong, String pin, boolean trangthai, int malaptop){
+        String query ="UPDATE  Laptop set \n" +
+"      [tenlaptop] = ?\n" +
+"      ,[giaban] = ?\n" +
+"      ,[mota] = ?\n" +
+"      ,[hinh] = ?\n" +
+"      ,[mahang] = ?\n" +
+"      ,[cpu] = ?\n" +
+"      ,[gpu]= ?\n" +
+"      ,[ram]= ?\n" +
+"      ,[hardware]= ?\n" +
+"      ,[manhinh]= ?\n" +
+"      ,[soluongton]= ?\n" +
+"      ,[pin]= ?\n" +
+"      ,[trangthai] = ? \n" +
+"WHERE malaptop = ?";
+        
+        try {
+             conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1,tenlaptop);
+            ps.setBigDecimal(2,giaban);
+            ps.setString(3, mota);
+            ps.setString(4, hinh);
+            ps.setInt(5,mahang);
+            ps.setString(6,cpu);
+            ps.setString(7,gpu);
+            ps.setString(8,ram);
+            ps.setString(9,hardware);
+            ps.setString(10,manghing);
+            ps.setInt(11,soluong);
+            ps.setString(12,pin);
+            ps.setBoolean(13,trangthai);
+            ps.setInt(14, malaptop);
+            
+            ps.executeUpdate();
+            
         } catch (Exception e) {
         }
     }
