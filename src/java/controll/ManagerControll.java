@@ -5,9 +5,9 @@
 package controll;
 
 import dao.DAO;
-import entity.Account;
-import entity.Hang;
-import entity.LapTop;
+import model.Account;
+import model.Hang;
+import model.LapTop;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;

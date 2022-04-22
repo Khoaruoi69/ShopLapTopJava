@@ -19,8 +19,10 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
     </head>
+    
     <body>
         <jsp:include page="Menu.jsp"></jsp:include>
+       
         
         <div class="container">
             <div class="row">
@@ -52,7 +54,7 @@
                                                 <p class="btn btn-danger btn-block">${o.giaban} VNÐ</p>
                                             </div>
                                             <div class="col">
-                                                <a href="Cart.jsp" class="btn btn-success btn-block">Thêm vào giỏ hàng</a>
+                                                <a href="GioHangControll" class="btn btn-success btn-block">Thêm vào giỏ hàng</a>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +67,7 @@
             </div>
                          
         </div>
-                            <jsp:include page="footer.jsp"></jsp:include>
+                          
                         
                            
 
