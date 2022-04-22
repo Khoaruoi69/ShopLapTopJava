@@ -6,10 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- Footer -->
-        <footer class="text-light">
+        <footer style="background-color: #f8f8f8" class="text-light">
             <div class="container">
           
-                    <div class="col-md-4 col-lg-3 col-xl-3">
+                <div class="col-md-4 col-lg-3 col-xl-3" style="color: black">
                         <h5>Contact</h5>
                         <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
                         <ul class="list-unstyled">
@@ -23,7 +23,7 @@
                         <p class="float-left">
                             <a href="HomeControll">Back to top</a>
                         </p>
-                        <p class="text-right text-muted">created with <i class="fa fa-heart"></i> by <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"><i>Khoa & Quý</i></a> | <span>v. 1.0</span></p>
+                        <p style="color: black" class="text-right text-muted">created with <i class="fa fa-heart"></i> by <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"><i>Khoa & Quý</i></a> | <span>v. 1.0</span></p>
                     </div>
                 </div>
             </div>

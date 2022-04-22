@@ -5,9 +5,9 @@
 package dao;
 
 import Context.DBContext;
-import entity.Hang;
-import entity.Account;
-import entity.LapTop;
+import model.Hang;
+import model.Account;
+import model.LapTop;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

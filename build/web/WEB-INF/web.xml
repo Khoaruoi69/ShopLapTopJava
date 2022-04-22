@@ -52,12 +52,16 @@
         <servlet-name>EditControll</servlet-name>
         <servlet-class>controll.EditControll</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GioHangControll</servlet-name>
+        <servlet-class>controll.GioHangControll</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>Edit.jsp</welcome-file>
+        <welcome-file>Cart.jsp</welcome-file>
     </welcome-file-list>
     <servlet-mapping>
         <servlet-name>HangControll</servlet-name>
@@ -106,6 +110,10 @@
     <servlet-mapping>
         <servlet-name>EditControll</servlet-name>
         <url-pattern>/EditControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GioHangControll</servlet-name>
+        <url-pattern>/GioHangControll</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package entity;
+package model;
 import java.math.BigDecimal;
 import java.util.Date;
 import microsoft.sql.DateTimeOffset;
@@ -14,7 +14,7 @@ import microsoft.sql.DateTimeOffset;
 public class LapTop {
   
 
-     private int malaptop;
+    private int malaptop;
     private String tenlaptop;
     private BigDecimal giaban;
     private String mota;
@@ -165,5 +165,7 @@ public class LapTop {
     public String toString() {
         return "LapTop{" + "malaptop=" + malaptop + ", tenlaptop=" + tenlaptop + ", giaban=" + giaban + ", mota=" + mota + ", hinh=" + hinh + ", mahang=" + mahang + ", cpu=" + cpu + ", gpu=" + gpu + ", ram=" + ram + ", hardware=" + hardware + ", manghing=" + manghing + ", soluong=" + soluong + ", pin=" + pin + ", trangthai=" + trangthai + '}';
     }
+
+    
     
 }
