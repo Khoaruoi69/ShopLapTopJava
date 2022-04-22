@@ -22,6 +22,7 @@
     
     <body>
         <jsp:include page="Menu.jsp"></jsp:include>
+        <jsp:include page="Banner.jsp"></jsp:include>
        
         
         <div class="container">
@@ -67,10 +68,7 @@
             </div>
                          
         </div>
-                          
-                        
-                           
-
-        
+                          <jsp:include page="footer.jsp"></jsp:include>
+                       
     </body>
 </html>

@@ -7,9 +7,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+       
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <!--begin of menu-->
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top" style="background-color: #D70018!important">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top" style="background-color: #D70018!important ">
             <div class="container">
                 <i style="color: white"class="fa fa-home fa-3x" aria-hidden="true"></i>
                 <a class="navbar-brand" href="HomeControll" > LAPTOP</a>
@@ -41,10 +42,13 @@
                         </c:if>
                         
                         <form action="SearchControll" method="post" class="form-inline my-2 my-lg-0">
-                        <div  class="input-group">
-                            
+                             <div class="input-group input-group-sm">
                             <input value="${txtS}" name="txt" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Bạn cần tìm gì ?">
-                            
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary btn-number">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
                         </div>
                             <a class="btn btn-light btn-sm ml-3" href="show">
                             <i class="fa fa-shopping-cart"  aria-hidden="true" >  Giỏ hàng</i>
@@ -82,6 +86,7 @@
             </div>
         </nav>
         
+                            
                             
                             
                            

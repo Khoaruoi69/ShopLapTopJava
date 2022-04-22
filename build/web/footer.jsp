@@ -23,7 +23,7 @@
                         <p class="float-left">
                             <a href="HomeControll">Back to top</a>
                         </p>
-                        <p style="color: black" class="text-right text-muted">created with <i class="fa fa-heart"></i> by <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"><i>Khoa & Quý</i></a> | <span>v. 1.0</span></p>
+                        <p  class="text-right text-muted">created with <i class="fa fa-heart"></i> by <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"><i style="color: red" >Khoa & Quý</i></a> | <span>v. 1.0</span></p>
                     </div>
                 </div>
             </div>
