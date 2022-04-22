@@ -47,6 +47,11 @@
                 width: 100% !important;
                 height: auto !important;
             }
+            .row{
+               padding-top: 50px; 
+            }
+                
+            
         </style>
     </head>
     <body>
