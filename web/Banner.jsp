@@ -18,24 +18,22 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
 <style>
-body{
-	
-}
+
 </style>
 </head>
 <body>	
     <div class="container" >
-<div id="carousel-demo" class="carousel slide" data-ride="carousel">
+        <div id="carousel-demo" class="carousel slide" data-ride="carousel">
 	<!-- Carousel Items -->
-	<div class="carousel-inner" >
-		<div class="carousel-item active" data-interval="1000">
+	     <div class="carousel-inner" >
+		<div style="padding-top: 5px" class="carousel-item active" data-interval="1000">
                     <img src="https://cdn.cellphones.com.vn/media/resized//ltsoft/promotioncategory/dell_cate.png" alt="" style="width:100%"> 
                        
 		</div>
-		<div class="carousel-item" data-interval="1000">
+		<div style="padding-top: 5px" class="carousel-item" data-interval="1000">
 			<img src="https://cdn.cellphones.com.vn/media/resized//ltsoft/promotioncategory/FUJITSU-CATE.png" alt="" style="width:100%">
 		</div>					
-		<div class="carousel-item">
+		<div style="padding-top: 5px" class="carousel-item">
 			<img src="https://cdn.cellphones.com.vn/media/resized//ltsoft/promotioncategory/2-intel-gaming-595-100-max.png" class="" alt="" style="width:100%">
 		</div>
 	</div>
