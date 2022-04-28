@@ -56,6 +56,10 @@
         <servlet-name>GioHangControll</servlet-name>
         <servlet-class>controll.GioHangControll</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartControll</servlet-name>
+        <servlet-class>controll.CartControll</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
@@ -115,6 +119,60 @@
         <servlet-name>GioHangControll</servlet-name>
         <url-pattern>/GioHangControll</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartControll</servlet-name>
+        <url-pattern>/CartControll</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    
+    
+    <servlet>
+        <servlet-name>OrderControl</servlet-name>
+        <servlet-class>controll.OrderControl</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>OrderControl</servlet-name>
+        <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CartControl</servlet-name>
+        <servlet-class>controll.CartControl</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>CartControl</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>RemoveProductControl</servlet-name>
+        <servlet-class>controll.RemoveProductControl</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>RemoveProductControl</servlet-name>
+        <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ShowCartControl</servlet-name>
+        <servlet-class>controll.ShowCartControl</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>ShowCartControl</servlet-name>
+        <url-pattern>/print</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>SubControl</servlet-name>
+        <servlet-class>controll.SubControl</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>SubControl</servlet-name>
+        <url-pattern>/sub</url-pattern>
+    </servlet-mapping>
+    
+    
     <session-config>
         <session-timeout>
             30

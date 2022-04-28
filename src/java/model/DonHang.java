@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -20,11 +21,12 @@ public class DonHang {
     private String NguoiGiao;
     private String NguoiNhan;
     private int maacc;
+    private BigDecimal TongTien;
 
     public DonHang() {
     }
 
-    public DonHang(int madon, boolean thanhtoan, Date ngaydat, Date ngaygiao, String dienthoai, String DiaChiGiao, String NguoiGiao, String NguoiNhan, int maacc) {
+    public DonHang(int madon, boolean thanhtoan, Date ngaydat, Date ngaygiao, String dienthoai, String DiaChiGiao, String NguoiGiao, String NguoiNhan, int maacc, BigDecimal TongTien) {
         this.madon = madon;
         this.thanhtoan = thanhtoan;
         this.ngaydat = ngaydat;
@@ -34,6 +36,7 @@ public class DonHang {
         this.NguoiGiao = NguoiGiao;
         this.NguoiNhan = NguoiNhan;
         this.maacc = maacc;
+        this.TongTien = TongTien;
     }
 
     public int getMadon() {
@@ -72,6 +75,10 @@ public class DonHang {
         return maacc;
     }
 
+    public BigDecimal getTongTien() {
+        return TongTien;
+    }
+
     public void setMadon(int madon) {
         this.madon = madon;
     }
@@ -108,9 +115,15 @@ public class DonHang {
         this.maacc = maacc;
     }
 
+    public void setTongTien(BigDecimal TongTien) {
+        this.TongTien = TongTien;
+    }
+
     @Override
     public String toString() {
-        return "DonHang{" + "madon=" + madon + ", thanhtoan=" + thanhtoan + ", ngaydat=" + ngaydat + ", ngaygiao=" + ngaygiao + ", dienthoai=" + dienthoai + ", DiaChiGiao=" + DiaChiGiao + ", NguoiGiao=" + NguoiGiao + ", NguoiNhan=" + NguoiNhan + ", maacc=" + maacc + '}';
+        return "DonHang{" + "madon=" + madon + ", thanhtoan=" + thanhtoan + ", ngaydat=" + ngaydat + ", ngaygiao=" + ngaygiao + ", dienthoai=" + dienthoai + ", DiaChiGiao=" + DiaChiGiao + ", NguoiGiao=" + NguoiGiao + ", NguoiNhan=" + NguoiNhan + ", maacc=" + maacc + ", TongTien=" + TongTien + '}';
     }
+    
+
     
 }

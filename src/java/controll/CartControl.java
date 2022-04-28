@@ -1,56 +1,62 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controll;
 
 import dao.DAO;
-import model.Hang;
-import model.LapTop;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-
+import model.Account;
 
 
 /**
  *
- * @author Khoa
+ * @author trinh
  */
-public class HomeControll extends HttpServlet {
+//@WebServlet(name = "CartControl", urlPatterns = {"/cart"})
+public class CartControl extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DAO dao = new DAO();
-        List<Hang> listH = dao.getAllHang();
-        List<LapTop> list = dao.getAllLaptop();
-        LapTop ListL = dao.getLast();
-        //b2: set data to jsp
-        request.setAttribute("listP",list);
-        request.setAttribute("ListH", listH);
-        request.setAttribute("p", ListL);
-        
-        request.getRequestDispatcher("Home.jsp").forward(request, response);
-        
+       
+        HttpSession session = request.getSession();
+        String id = request.getParameter("id");
+         Account a = (Account) session.getAttribute("acc");
+         if(a==null){
+              request.getRequestDispatcher("Login.jsp").forward(request, response);
+         }
+         else{
+        Cookie arr[] = request.getCookies();
+        String txt = "";
+        for (Cookie o : arr) {
+            if (o.getName().equals("id")) {
+                txt = txt + o.getValue();
+                o.setMaxAge(0);
+                response.addCookie(o);
+            }
+        }
+        if (txt.isEmpty()) {
+            txt = id;
+        } else {
+            txt = txt +"."+ id;
+           //txt +=","+id;s
+        }
+        Cookie c = new Cookie("id", txt);
+        c.setMaxAge(60 * 60 * 24);
+        response.addCookie(c);
+        response.sendRedirect("print");
     }
-
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -63,11 +69,7 @@ public class HomeControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(HomeControll.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -81,11 +83,7 @@ public class HomeControll extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(HomeControll.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

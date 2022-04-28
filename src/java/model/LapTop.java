@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import microsoft.sql.DateTimeOffset;
@@ -11,7 +12,7 @@ import microsoft.sql.DateTimeOffset;
  *
  * @author Khoa
  */
-public class LapTop {
+public class LapTop implements Serializable{
   
 
     private int malaptop;
@@ -28,10 +29,13 @@ public class LapTop {
     private int soluong;
     private String pin;
     private boolean trangthai;
-
+    
+     private int amount;
+    
     public LapTop() {
     }
 
+    
     public LapTop(int malaptop, String tenlaptop, BigDecimal giaban, String mota, String hinh, int mahang, String cpu, String gpu, String ram, String hardware, String manghing, int soluong, String pin, boolean trangthai) {
         this.malaptop = malaptop;
         this.tenlaptop = tenlaptop;
@@ -48,6 +52,34 @@ public class LapTop {
         this.pin = pin;
         this.trangthai = trangthai;
     }
+
+    public LapTop(int malaptop, String tenlaptop, BigDecimal giaban, String mota, String hinh, int mahang, String cpu, String gpu, String ram, String hardware, String manghing, int soluong, String pin, boolean trangthai, int amount) {
+        this.malaptop = malaptop;
+        this.tenlaptop = tenlaptop;
+        this.giaban = giaban;
+        this.mota = mota;
+        this.hinh = hinh;
+        this.mahang = mahang;
+        this.cpu = cpu;
+        this.gpu = gpu;
+        this.ram = ram;
+        this.hardware = hardware;
+        this.manghing = manghing;
+        this.soluong = soluong;
+        this.pin = pin;
+        this.trangthai = trangthai;
+        this.amount = amount;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+    
+    
 
     public int getMalaptop() {
         return malaptop;
