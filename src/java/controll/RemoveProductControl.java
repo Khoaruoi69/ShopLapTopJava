@@ -1,24 +1,26 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controll;
 
-import model.Account;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 
 /**
  *
- * @author Khoa
+ * @author trinh
  */
-public class GioHangControll extends HttpServlet {
+@WebServlet(name = "RemoveProductControl", urlPatterns = {"/remove"})
+public class RemoveProductControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,14 +34,34 @@ public class GioHangControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-        Account ac = (Account) session.getAttribute("acc");
-        if(ac!=null){
-            request.getRequestDispatcher("Cart.jsp").forward(request, response);
+        String id = request.getParameter("id");
+        Cookie arr[] = request.getCookies();
+        String txt = "";
+        for (Cookie o : arr) {
+            if (o.getName().equals("id")) {
+                txt = txt + o.getValue();
+                o.setMaxAge(0);
+                response.addCookie(o);
+            }
         }
-        else{
-            response.sendRedirect("Login.jsp");
+        String ids[] = txt.split("\\.");
+        String txtOutPut = "";
+        int check = 0;
+        for (int i = 0; i < ids.length; i++) {
+            if (!ids[i].equals(id)) {
+                if (txtOutPut.isEmpty()) {
+                    txtOutPut = ids[i];
+                } else {
+                    txtOutPut = txtOutPut +"."+ ids[i];
+                }
+            }
         }
+        if (!txtOutPut.isEmpty()) {
+            Cookie c = new Cookie("id", txtOutPut);
+            c.setMaxAge(60 * 60 * 24);
+            response.addCookie(c);
+        }
+        response.sendRedirect("print");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,6 +39,8 @@
                 </div>
             </div>
         </div>
+        
+       
         <div class="container">
             <div class="row">
             <jsp:include page="Left.jsp"></jsp:include>
@@ -54,8 +57,9 @@
                                             <div class="col">
                                                 <p class="btn btn-danger btn-block">${o.giaban} VNÐ</p>
                                             </div>
+                                              
                                             <div class="col">
-                                                <a href="GioHangControll" class="btn btn-success btn-block">Thêm vào giỏ hàng</a>
+                                                <a href="cart?id=${o.malaptop}" class="btn btn-success btn-block">Thêm vào giỏ hàng</a>
                                             </div>
                                         </div>
                                     </div>

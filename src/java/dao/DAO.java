@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import sun.misc.Signal;
 
 /**
@@ -386,6 +387,41 @@ public class DAO {
             
         } catch (Exception e) {
         }
+    }
+    
+    
+
+    // lay id lap top vao gio hang 
+    
+    public LapTop getLapTop(String malaptop) {
+        String query = "select * from Laptop\n"
+                +"where malaptop = ?";
+                    
+        try {
+            conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, malaptop);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+               return new LapTop(
+                       rs.getInt(1),
+                        rs.getString(2),
+                        rs.getBigDecimal(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getBoolean(14),1);
+            }
+        } catch (Exception e) {
+        }
+        return null;
     }
     public static void main(String[] args) {
         DAO dao = new DAO();
