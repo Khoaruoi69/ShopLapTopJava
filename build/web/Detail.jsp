@@ -52,6 +52,12 @@
             }
                 
             
+               
+        .currSign:after {
+            content: ' VNÐ';
+        }
+   
+            
         </style>
     </head>
     <body>
@@ -79,7 +85,7 @@
                                         <h3 class="title mb-3">${detail.tenlaptop}</h3>
                                         <p class="price-detail-wrap"> 
                                             <span class="price h3 text-warning"> 
-                                                <span class="currency">Giá bán: </span><span class="num">${detail.giaban} VNÐ</span>
+                                                <span class="currency">Giá bán: </span><span class="num myDIV">${detail.giaban}</span>
                                             </span> 
                                   
                                             <!--<span>/per kg</span>--> 
@@ -142,5 +148,14 @@
             </div>
         </div>
                                                     <jsp:include page="footer.jsp"></jsp:include>
+                                                     <script>
+        let x = document.querySelectorAll(".myDIV");
+        for (let i = 0, len = x.length; i < len; i++) {
+            let num = Number(x[i].innerHTML)
+                      .toLocaleString('en');
+            x[i].innerHTML = num;
+            x[i].classList.add("currSign");
+        }
+    </script>
     </body>
 </html>

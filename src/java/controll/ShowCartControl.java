@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controll;
 
 import dao.DAO;
@@ -24,7 +19,7 @@ import java.math.MathContext;
  *
  * @author trinh
  */
-@WebServlet(name = "ShowCartControl", urlPatterns = {"/print"})
+//@WebServlet(name = "ShowCartControl", urlPatterns = {"/print"})
 public class ShowCartControl extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -42,6 +37,7 @@ public class ShowCartControl extends HttpServlet {
                 }
             }
         }
+        int dem=0;
         for (int i = 0; i < list.size(); i++) {
             int count = 1;
             for (int j = i+1; j < list.size(); j++) {
@@ -50,8 +46,11 @@ public class ShowCartControl extends HttpServlet {
                     list.remove(j);
                     j--;
                     list.get(i).setAmount(count);
+                   
                 }
+               
             }
+              dem+=count;
         }
         
          
@@ -66,9 +65,12 @@ public class ShowCartControl extends HttpServlet {
         }
         request.setAttribute("list", list);
         request.setAttribute("total", total);
+        request.setAttribute("dem", dem);
         request.setAttribute("vat", total.multiply(BigDecimal.valueOf(0.1)));
         request.setAttribute("sum", total.multiply(BigDecimal.valueOf(1.1)));
+       
         request.getRequestDispatcher("Cart.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

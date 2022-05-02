@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Home
-    Created on : Apr 16, 2022, 9:57:03 PM
-    Author     : Khoa
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -19,12 +13,24 @@
         <!------ Include the above in your HEAD tag ---------->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        
+        <style>
+        .currSign:after {
+            content: ' VNÐ';
+        }
+    </style>
+        
     </head>
     
     <body>
+        
+       
+        
+        
         <jsp:include page="Menu.jsp"></jsp:include>
         <jsp:include page="Banner.jsp"></jsp:include>
        
+        
         
         <div class="container">
             <div class="row">
@@ -55,7 +61,7 @@
                                         <p class="card-text show_txt">${o.mota}</p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger btn-block">${o.giaban} VNÐ</p>
+                                                <p class="btn btn-danger btn-block myDIV">${o.giaban}</p>
                                             </div>
                                               
                                             <div class="col">
@@ -73,6 +79,18 @@
                          
         </div>
                           <jsp:include page="footer.jsp"></jsp:include>
+                          
+                          <script>
+        let x = document.querySelectorAll(".myDIV");
+        for (let i = 0, len = x.length; i < len; i++) {
+            let num = Number(x[i].innerHTML)
+                      .toLocaleString('en');
+            x[i].innerHTML = num;
+            x[i].classList.add("currSign");
+        }
+    </script>
                        
     </body>
+    
+   
 </html>

@@ -8,11 +8,13 @@ import dao.DAO;
 import model.Hang;
 import model.LapTop;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,6 +44,9 @@ public class HomeControll extends HttpServlet {
         List<Hang> listH = dao.getAllHang();
         List<LapTop> list = dao.getAllLaptop();
         LapTop ListL = dao.getLast();
+        
+        
+        
         //b2: set data to jsp
         request.setAttribute("listP",list);
         request.setAttribute("ListH", listH);
