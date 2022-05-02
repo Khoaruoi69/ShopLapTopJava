@@ -50,10 +50,12 @@
                                 </button>
                             </div>
                         </div>
-                            <a class="btn btn-light btn-sm ml-3" href="show">
+                            <!--c:if test="${sessionScope.acc != null}" -->
+                            <a class="btn btn-light btn-sm ml-3" href="print" >
                             <i class="fa fa-shopping-cart"  aria-hidden="true" >  Giỏ hàng</i>
-                            <span class="badge badge-light">3</span>
-                        </a>
+                            <span class="badge badge-light">${dem}</span>
+                            </a>
+                            <!--/c:if> -->
                      
                     </form>
                         

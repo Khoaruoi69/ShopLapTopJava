@@ -18,112 +18,88 @@ public class DonHang {
     private Date ngaygiao;
     private String dienthoai;
     private String DiaChiGiao;
-    private String NguoiGiao;
-    private String NguoiNhan;
     private int maacc;
     private BigDecimal TongTien;
 
-    public DonHang() {
-    }
-
-    public DonHang(int madon, boolean thanhtoan, Date ngaydat, Date ngaygiao, String dienthoai, String DiaChiGiao, String NguoiGiao, String NguoiNhan, int maacc, BigDecimal TongTien) {
+    public DonHang(int madon, boolean thanhtoan, Date ngaydat, Date ngaygiao, String dienthoai, String DiaChiGiao, int maacc, BigDecimal TongTien) {
         this.madon = madon;
         this.thanhtoan = thanhtoan;
         this.ngaydat = ngaydat;
         this.ngaygiao = ngaygiao;
         this.dienthoai = dienthoai;
         this.DiaChiGiao = DiaChiGiao;
-        this.NguoiGiao = NguoiGiao;
-        this.NguoiNhan = NguoiNhan;
         this.maacc = maacc;
         this.TongTien = TongTien;
+    }
+
+    public DonHang() {
     }
 
     public int getMadon() {
         return madon;
     }
 
-    public boolean isThanhtoan() {
-        return thanhtoan;
-    }
-
-    public Date getNgaydat() {
-        return ngaydat;
-    }
-
-    public Date getNgaygiao() {
-        return ngaygiao;
-    }
-
-    public String getDienthoai() {
-        return dienthoai;
-    }
-
-    public String getDiaChiGiao() {
-        return DiaChiGiao;
-    }
-
-    public String getNguoiGiao() {
-        return NguoiGiao;
-    }
-
-    public String getNguoiNhan() {
-        return NguoiNhan;
-    }
-
-    public int getMaacc() {
-        return maacc;
-    }
-
-    public BigDecimal getTongTien() {
-        return TongTien;
-    }
-
     public void setMadon(int madon) {
         this.madon = madon;
+    }
+
+    public boolean isThanhtoan() {
+        return thanhtoan;
     }
 
     public void setThanhtoan(boolean thanhtoan) {
         this.thanhtoan = thanhtoan;
     }
 
+    public Date getNgaydat() {
+        return ngaydat;
+    }
+
     public void setNgaydat(Date ngaydat) {
         this.ngaydat = ngaydat;
+    }
+
+    public Date getNgaygiao() {
+        return ngaygiao;
     }
 
     public void setNgaygiao(Date ngaygiao) {
         this.ngaygiao = ngaygiao;
     }
 
+    public String getDienthoai() {
+        return dienthoai;
+    }
+
     public void setDienthoai(String dienthoai) {
         this.dienthoai = dienthoai;
+    }
+
+    public String getDiaChiGiao() {
+        return DiaChiGiao;
     }
 
     public void setDiaChiGiao(String DiaChiGiao) {
         this.DiaChiGiao = DiaChiGiao;
     }
 
-    public void setNguoiGiao(String NguoiGiao) {
-        this.NguoiGiao = NguoiGiao;
-    }
-
-    public void setNguoiNhan(String NguoiNhan) {
-        this.NguoiNhan = NguoiNhan;
+    public int getMaacc() {
+        return maacc;
     }
 
     public void setMaacc(int maacc) {
         this.maacc = maacc;
     }
 
+    public BigDecimal getTongTien() {
+        return TongTien;
+    }
+
     public void setTongTien(BigDecimal TongTien) {
         this.TongTien = TongTien;
     }
 
-    @Override
-    public String toString() {
-        return "DonHang{" + "madon=" + madon + ", thanhtoan=" + thanhtoan + ", ngaydat=" + ngaydat + ", ngaygiao=" + ngaygiao + ", dienthoai=" + dienthoai + ", DiaChiGiao=" + DiaChiGiao + ", NguoiGiao=" + NguoiGiao + ", NguoiNhan=" + NguoiNhan + ", maacc=" + maacc + ", TongTien=" + TongTien + '}';
-    }
-    
+  
 
     
 }

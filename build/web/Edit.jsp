@@ -25,6 +25,9 @@
                 width: 200px;
                 height: 120px;
             }
+            .currSign:after {
+            content: ' VNÐ';
+        }
         </style>
     <body>
         <div class="container">
@@ -61,7 +64,7 @@
                                 <label>Hình</label>
                                 <input value="${detail.hinh}" name="image" type="text" class="form-control" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group myDIV">
                                 <label>Giá bán</label>
                                 <input value="${detail.giaban}"name="price" type="text" class="form-control" required>
                             </div>
@@ -123,7 +126,18 @@
             </div>
 
         </div>
-
+                            
+                            
+                            <!-- format tien -->
+        <script>
+        let x = document.querySelectorAll(".myDIV");
+        for (let i = 0, len = x.length; i < len; i++) {
+            let num = Number(x[i].innerHTML)
+                      .toLocaleString('en');
+            x[i].innerHTML = num;
+            x[i].classList.add("currSign");
+        }
+    </script>
 
         <script src="js/manager.js" type="text/javascript"></script>
     </body>

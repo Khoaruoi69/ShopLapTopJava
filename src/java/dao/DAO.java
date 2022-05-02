@@ -396,6 +396,7 @@ public class DAO {
     public LapTop getLapTop(String malaptop) {
         String query = "select * from Laptop\n"
                 +"where malaptop = ?";
+         List<LapTop> list = new ArrayList<>();
                     
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql

@@ -12,7 +12,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        
+         <style>
+        .currSign:after {
+            content: ' VNÐ';
+        }
+    </style>
+        
     </head>
 
     <body>
@@ -55,7 +63,7 @@
                                                             </div>
                                                         </div>
                                                     </th>
-                                                    <td class="align-middle"><strong>${o.giaban}</strong></td>
+                                                    <td class="align-middle myDIV">${o.giaban}</td>
                                                     <td class="align-middle">
                                                         <a href="sub?id=${o.malaptop}"><button class="btnSub">-</button></a><strong>${o.amount}</strong>
                                         
@@ -90,13 +98,13 @@
                                 <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thành tiền</div>
                                 <div class="p-4">
                                     <ul class="list-unstyled mb-4">
-                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền hàng</strong><strong>${total} VNÐ</strong></li>
+                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền hàng</strong><h5 class="font-weight-bold myDIV">${total} </h5></li>
                                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Phí vận chuyển</strong><strong>Free ship</strong></li>
-                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">VAT</strong><strong>${vat} VNÐ</strong></li>
+                                        <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">VAT</strong><h5 class="font-weight-bold myDIV">${vat} </h5></li>
                                         <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng thanh toán</strong>
-                                            <h5 class="font-weight-bold">${sum} VNÐ</h5>
+                                            <h5 class="font-weight-bold myDIV">${sum} </h5>
                                         </li>
-                                    </ul><a href="buy" class="btn btn-dark rounded-pill py-2 btn-block">Mua hàng</a>
+                                    </ul><a href="#addEmployeeModal"  class="btn btn-dark rounded-pill py-2 btn-block" data-toggle="modal"> <span>Mua hàng</span></a>
                                 </div>
                             </div>
                         </div>
@@ -105,6 +113,74 @@
                 </div>
             </div>
         </div>
+                                        
+                                        
+                                        <!<!-- Don dat hang jsp -->
+        <!-- Add Modal HTML -->
+        
+        <script>
+            var today = new Date();
+            var date = today.getDate();
+        </script>
+        <div id="addEmployeeModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="AddControll" method="post">
+                        <div class="modal-header">						
+                            <h4 class="modal-title">Thông tin đơn hàng</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">					
+                            <div class="form-group">
+                                <label>Người đặt</label>
+                                <input value=" ${sessionScope.acc.hoten}" name="name" type="text" class="form-control" readonly required>
+                            </div>
+                            <div class="form-group">
+                                <label>Ngày đặt</label>
+                                <input value="${date}" name="image" type="text" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Ngày giao</label>
+                                <input name="price" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>Số điện thoại </label>
+                                <input name="CPU" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>Địa chỉ giao</label>
+                                <input name="GPU" type="text" class="form-control" required>
+                            </div>
+                             <div class="form-group">
+                                <label>Tổng tiền</label>
+                                <input name="RAM" type="text" class="form-control" required>
+                             </div>
+                            
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <input type="submit" class="btn btn-success" value="Mua hàng">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+                            
+    <script>
+        let x = document.querySelectorAll(".myDIV");
+        for (let i = 0, len = x.length; i < len; i++) {
+            let num = Number(x[i].innerHTML)
+                      .toLocaleString('en');
+            x[i].innerHTML = num;
+            x[i].classList.add("currSign");
+        }
+    </script>
+        
+        
+                                        
+                                        
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

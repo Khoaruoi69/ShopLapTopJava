@@ -5,6 +5,7 @@
 package model;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Date;
 import microsoft.sql.DateTimeOffset;
 
@@ -12,8 +13,11 @@ import microsoft.sql.DateTimeOffset;
  *
  * @author Khoa
  */
+
+
 public class LapTop implements Serializable{
   
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
 
     private int malaptop;
     private String tenlaptop;
@@ -92,6 +96,7 @@ public class LapTop implements Serializable{
     public BigDecimal getGiaban() {
         return giaban;
     }
+    
 
     public String getMota() {
         return mota;
