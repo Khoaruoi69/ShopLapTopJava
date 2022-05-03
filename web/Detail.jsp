@@ -14,7 +14,7 @@
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-         <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <style>
             .gallery-wrap .img-big-wrap img {
                 height: 450px;
@@ -48,36 +48,34 @@
                 height: auto !important;
             }
             .row{
-               padding-top: 50px; 
+                padding-top: 50px;
             }
-                
-            
-               
-        .currSign:after {
-            content: ' VNÐ';
-        }
-   
-            
+
+
+
+            .currSign:after {
+                content: ' VNÐ';
+            }
+
+
         </style>
     </head>
     <body>
         <jsp:include page="Menu.jsp"></jsp:include>
-        
-        
-       
+
             <div class="container">
                 <div class="row">
                 <jsp:include page="Left.jsp"></jsp:include>
-                <div class="col-sm-9">
-                    <div class="container">
-                        <div class="card">
-                            <div class="row">
-                                <aside class="col-sm-5 border-right">
-                                    <article class="gallery-wrap"> 
-                                        <div class="img-big-wrap">
-                                            <div> <a href="#"><img src="${detail.hinh}"></a></div>
+                    <div class="col-sm-9">
+                        <div class="container">
+                            <div class="card">
+                                <div class="row">
+                                    <aside class="col-sm-5 border-right">
+                                        <article class="gallery-wrap"> 
+                                            <div class="img-big-wrap">
+                                                <div> <a href="#"><img src="${detail.hinh}"></a></div>
                                         </div> <!-- slider-product.// -->
-                   
+
                                     </article> <!-- gallery-wrap .end// -->
                                 </aside>
                                 <aside class="col-sm-7">
@@ -87,36 +85,36 @@
                                             <span class="price h3 text-warning"> 
                                                 <span class="currency">Giá bán: </span><span class="num myDIV">${detail.giaban}</span>
                                             </span> 
-                                  
+
                                             <!--<span>/per kg</span>--> 
                                         </p> <!-- price-detail-wrap .// -->
                                         <dl class="item-property">
                                             <dt>Mô tả sản phẩm: </dt>
-                                           
+
                                             <dd><p>
-                                                   
+
                                             <dt>Ram: ${detail.ram},
                                                 CPU: ${detail.cpu}, 
                                                 GPU: ${detail.gpu}, 
                                                 Hardware: ${detail.hardware}, 
                                                 Pin: ${detail.pin}, 
                                                 Màn hình: ${detail.manghing}.
-                                                </dt></br> 
-                                         
-                                                    ${detail.mota} </p></dd>
+                                            </dt></br> 
+
+                                            ${detail.mota} </p></dd>
                                         </dl>
-<!--                                        <dl class="param param-feature">
-                                            <dt>Model#</dt>
-                                            <dd>12345611</dd>
-                                        </dl>   item-property-hor .// 
-                                        <dl class="param param-feature">
-                                            <dt>Color</dt>
-                                            <dd>Black and white</dd>
-                                        </dl>   item-property-hor .// 
-                                        <dl class="param param-feature">
-                                            <dt>Delivery</dt>
-                                            <dd>Russia, USA, and Europe</dd>
-                                        </dl>   item-property-hor .// -->
+                                        <!--                                        <dl class="param param-feature">
+                                                                                    <dt>Model#</dt>
+                                                                                    <dd>12345611</dd>
+                                                                                </dl>   item-property-hor .// 
+                                                                                <dl class="param param-feature">
+                                                                                    <dt>Color</dt>
+                                                                                    <dd>Black and white</dd>
+                                                                                </dl>   item-property-hor .// 
+                                                                                <dl class="param param-feature">
+                                                                                    <dt>Delivery</dt>
+                                                                                    <dd>Russia, USA, and Europe</dd>
+                                                                                </dl>   item-property-hor .// -->
 
                                         <hr>
                                         <div class="row">
@@ -132,7 +130,7 @@
                                                     </dd>
                                                 </dl>  <!-- item-property .// -->
                                             </div> <!-- col.// -->
-                                            
+
                                         </div> <!-- row.// -->
                                         <hr>
                                         <a href="cart?id=${detail.malaptop}" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
@@ -147,15 +145,15 @@
                 </div>
             </div>
         </div>
-                                                    <jsp:include page="footer.jsp"></jsp:include>
-                                                     <script>
-        let x = document.querySelectorAll(".myDIV");
-        for (let i = 0, len = x.length; i < len; i++) {
-            let num = Number(x[i].innerHTML)
-                      .toLocaleString('en');
-            x[i].innerHTML = num;
-            x[i].classList.add("currSign");
-        }
-    </script>
+        <jsp:include page="footer.jsp"></jsp:include>
+        <script>
+            let x = document.querySelectorAll(".myDIV");
+            for (let i = 0, len = x.length; i < len; i++) {
+                let num = Number(x[i].innerHTML)
+                        .toLocaleString('en');
+                x[i].innerHTML = num;
+                x[i].classList.add("currSign");
+            }
+        </script>
     </body>
 </html>

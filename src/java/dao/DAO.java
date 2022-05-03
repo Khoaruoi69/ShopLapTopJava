@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import model.DonHang;
 
 import sun.misc.Signal;
 
@@ -318,7 +319,7 @@ public class DAO {
         } catch (Exception e) {
         }
     }    
-        // Insert du lieu 
+        // Insert du lieu laptop
     public void insertProduct(String tenlaptop, BigDecimal giaban, String mota, String hinh, int mahang, String cpu, String gpu, String ram, String hardware, String manghing, int soluong, String pin, boolean trangthai){
         String query ="INSERT  [dbo].[Laptop] \n" +
                      "( [tenlaptop], [giaban], [mota] ,[hinh], [mahang], [cpu] , [gpu], [ram], [hardware], [manhinh], [soluongton]\n" +
@@ -424,6 +425,93 @@ public class DAO {
         }
         return null;
     }
+    
+    /// lam don hang 
+    
+    // insert don hang
+    
+    public void insertDonHang(boolean thanhtoan, String ngaydat, String ngaygiao, String dienthoai, String Diachigiao, int maacc){
+        String query ="INSERT  [dbo].[DonHang] \n" +
+                     "( [thanhtoan], [ngaydat], [ngaygiao] ,[dienthoai], [Diachigiao], [maacc] )\n" +
+                     "VALUES( ?,?,?,?,?,?)";
+        
+        try {
+             conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setBoolean(1,thanhtoan);
+            ps.setString(2, ngaydat);
+            ps.setString(3, ngaygiao);
+            ps.setString(4, dienthoai);
+            ps.setString(5,Diachigiao);
+            ps.setInt(6,maacc);
+    
+            ps.executeUpdate();
+            
+        } catch (Exception e) {
+        }
+    }
+     // lay don hang 
+    public List<DonHang> getDonHang() throws Exception{
+        List<DonHang> list = new ArrayList<>();
+        String query ="select * from DonHang";
+        try{
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                list.add(new DonHang(
+                        
+                ));
+            }
+        }
+        catch(Exception e){
+            
+        }
+        return list;
+    }
+    // lay ma don hang cuoi cung 
+    public DonHang getDonHanglast(){
+       
+        String query ="SELECT TOP 1 * FROM DonHang \n" +
+                "ORDER BY madon DESC ";
+        try{
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs=ps.executeQuery();
+            while (rs.next()) {
+               return new DonHang(
+                       rs.getInt(1),
+                        rs.getBoolean(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    // them chi tiet don hang 
+    public void insertCTDonHang(int madon, int malaptop, int soluong, BigDecimal dongia){
+        String query ="INSERT  [dbo].[ChiTietDonHang] \n" +
+                     "( [madon], [malaptop], [soluong] ,[dongia] )\n" +
+                     "VALUES( ?,?,?,?)";
+        
+        try {
+             conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setInt(1,madon);
+            ps.setInt(2,malaptop);
+            ps.setInt(3,soluong);
+            ps.setBigDecimal(4,dongia);
+          
+            ps.executeUpdate();
+            
+        } catch (Exception e) {
+        }
+    }
+    
     public static void main(String[] args) {
         DAO dao = new DAO();
         LapTop list = dao.getLast();

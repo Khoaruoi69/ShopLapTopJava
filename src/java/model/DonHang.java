@@ -14,14 +14,17 @@ import java.util.Date;
 public class DonHang {
     private int madon;
     private boolean thanhtoan;
-    private Date ngaydat;
-    private Date ngaygiao;
+    private String ngaydat;
+    private String ngaygiao;
     private String dienthoai;
     private String DiaChiGiao;
     private int maacc;
     private BigDecimal TongTien;
 
-    public DonHang(int madon, boolean thanhtoan, Date ngaydat, Date ngaygiao, String dienthoai, String DiaChiGiao, int maacc, BigDecimal TongTien) {
+    public DonHang() {
+    }
+
+    public DonHang(int madon, boolean thanhtoan, String ngaydat, String ngaygiao, String dienthoai, String DiaChiGiao, int maacc, BigDecimal TongTien) {
         this.madon = madon;
         this.thanhtoan = thanhtoan;
         this.ngaydat = ngaydat;
@@ -32,7 +35,8 @@ public class DonHang {
         this.TongTien = TongTien;
     }
 
-    public DonHang() {
+    public DonHang(int aInt, boolean aBoolean, String string, String string0, String string1, String string2, int aInt0) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public int getMadon() {
@@ -51,19 +55,19 @@ public class DonHang {
         this.thanhtoan = thanhtoan;
     }
 
-    public Date getNgaydat() {
+    public String getNgaydat() {
         return ngaydat;
     }
 
-    public void setNgaydat(Date ngaydat) {
+    public void setNgaydat(String ngaydat) {
         this.ngaydat = ngaydat;
     }
 
-    public Date getNgaygiao() {
+    public String getNgaygiao() {
         return ngaygiao;
     }
 
-    public void setNgaygiao(Date ngaygiao) {
+    public void setNgaygiao(String ngaygiao) {
         this.ngaygiao = ngaygiao;
     }
 
@@ -99,7 +103,7 @@ public class DonHang {
         this.TongTien = TongTien;
     }
 
-  
+   
 
     
 }
