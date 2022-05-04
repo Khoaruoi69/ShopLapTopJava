@@ -4,14 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/dao/DAO.java</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/MuahangControll.java</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/ThemDonHangControll.java</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/OrderControl.java</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/web/ManagerProduct.jsp</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/CartControl.java</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/web/ThemDonHang.jsp</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/ShowCartControl.java</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/ManagerControll.java</file>
+            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/XacNhanDonControll.java</file>
+            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/web/Menu.jsp</file>
+            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/HomeControll.java</file>
+            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/web/ManagerBill.jsp</file>
+            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/LayDonHangControll.java</file>
         </group>
     </open-files>
 </project-private>

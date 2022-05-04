@@ -12,11 +12,9 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import model.Account;
 import model.DonHang;
 import model.LapTop;
 
@@ -24,7 +22,7 @@ import model.LapTop;
  *
  * @author Khoa
  */
-public class ThemDonHangControll extends HttpServlet {
+public class XacNhanDonControll extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,47 +36,26 @@ public class ThemDonHangControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+        int madon = Integer.parseInt(request.getParameter("madon"));
+        int malaptop = Integer.parseInt(request.getParameter("malaptop"));
+        int soluong = Integer.parseInt(request.getParameter("soluong"));
+        BigDecimal giaban = BigDecimal.valueOf(Double.parseDouble(request.getParameter("giaban")));
+
+        DAO dao = new DAO();
         Cookie arr[] = request.getCookies();
         List<LapTop> list = new ArrayList<>();
-        DAO dao = new DAO();
+
         for (Cookie o : arr) {
             if (o.getName().equals("id")) {
                 String txt[] = o.getValue().split("\\.");
                 for (String s : txt) {
                     list.add(dao.getLapTop(s));
+                    dao.insertCTDonHang(madon, malaptop, soluong, giaban);
                 }
             }
         }
-        int count =1;
-        for (int i = 0; i < list.size(); i++) {
-           count = 1;
-            for (int j = i+1; j < list.size(); j++) {
-                if(list.get(i).getMalaptop() == list.get(j).getMalaptop()){
-                    count++;
-                    list.remove(j);
-                    j--;
-                    list.get(i).setAmount(count);
-                   
-                }
-                
-               
-            }
-             
-        }
-        
-       // HttpSession session = request.getSession();
-       // DonHang dh = (DonHang) session.getAttribute("donHang");
-        
-        DonHang donHang = dao.getDonHanglast();
-        request.setAttribute("donhang", donHang);
-        
-        
-        request.setAttribute("dem", count);
-        request.setAttribute("list", list);
-        
-         request.getRequestDispatcher("ThemDonHang.jsp").forward(request, response);
-         
+
+        response.sendRedirect("HomeControll");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

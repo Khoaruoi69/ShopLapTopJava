@@ -39,7 +39,7 @@
                             <h2>Sản phẩm <b>bạn mua</b></h2>
                         </div>
                         <div class="col-sm-6">
-                            <a href="HomeControll"  class="btn btn-success" data-toggle="modal"><span>Xác nhận mua hàng</span></a>
+                            <a href="#Muahang"  class="btn btn-success" data-toggle="modal"><span>Xác nhận mua hàng</span></a>
 
                         </div>
                     </div>
@@ -69,8 +69,7 @@
                         </tr>
 
                     </thead>
-                    <div name="madon" value="${donHang.madon}"></div>
-                    <!--<div name="acc">${sessionScope.acc.maacc}</div>-->
+
                     <c:forEach items="${list}" var="o">
                         <tbody>
                             <tr>
@@ -80,20 +79,20 @@
                                         <label for="checkbox1"></label>
                                     </span>
                                 </td>
-                                <td name="malaptop" value="${o.malaptop}">${o.malaptop}</td>
+                                <td>${o.malaptop}</td>
                                 <td>${o.tenlaptop}</td>
                                 <td>
                                     <img src="${o.hinh}">
                                 </td>
-                                <td name="giaban">${o.giaban}</td>
+                                <td>${o.giaban}</td>
                                 <td>${o.cpu}</td>
                                 <td>${o.gpu}</td>
                                 <td>${o.ram}</td>
                                 <td>${o.hardware}</td>
                                 <td>${o.pin}</td>
                                 <td>${o.manghing}</td>
-                                
-                                <td name="soluong">${o.amount}</td>
+
+                                <td>${o.amount}</td>
 
                                 <!--<td>-->
                                     <!--<a href="LoadControll?pmalaptop=${o.malaptop}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>-->
@@ -105,6 +104,51 @@
 
                 </table>
 
+            </div>
+        </div>
+
+
+        <!--CHI tiet don hang -->
+        <div id="Muahang" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="XacNhanDonControll" method="post">
+                        <div class="modal-header">						
+                            <h4 class="modal-title">Sản phẩm bạn mua</h4>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group d-none">
+
+                                <label>Mã đơn</label>
+                                <input value="${donhang.madon}" name="madon" type="text" class="form-control" readonly required>
+
+                            </div>
+
+                            <c:forEach items="${list}" var="o">
+
+                                <div class="form-group d-none">
+                                    <label>Mã Laptop</label>
+                                    <input value="${o.malaptop}" name="malaptop" type="text" class="form-control" readonly required>
+                                </div>
+                                <div class="form-group d-none">
+                                    <label>Số lượng</label>
+                                    <input value="${o.amount}"name="soluong" type="text" class="form-control" readonly required>
+                                </div>
+                                <div class="form-group d-none">
+                                    <label>Giá bán</label>
+                                    <input value="${o.giaban}" name="giaban" type="text" class="form-control" readonly required>
+                                </div>
+                            </c:forEach>
+
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <input type="submit" class="btn btn-info" value="Xác nhận">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 

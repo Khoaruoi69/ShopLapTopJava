@@ -48,6 +48,7 @@ public class MuahangControll extends HttpServlet {
         dao.insertDonHang(true, ngaydat, ngaygiao, dienthoai, Diachigiao, maacc);
         
         
+        
         response.sendRedirect("ThemDonHangControll");
         
     }

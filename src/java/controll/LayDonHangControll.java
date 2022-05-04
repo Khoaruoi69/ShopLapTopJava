@@ -8,23 +8,20 @@ import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
-import model.Account;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.DonHang;
-import model.LapTop;
+
 
 /**
  *
  * @author Khoa
  */
-public class ThemDonHangControll extends HttpServlet {
+public class LayDonHangControll extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,49 +33,15 @@ public class ThemDonHangControll extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException,Exception {
         response.setContentType("text/html;charset=UTF-8");
-       
-        Cookie arr[] = request.getCookies();
-        List<LapTop> list = new ArrayList<>();
+        
         DAO dao = new DAO();
-        for (Cookie o : arr) {
-            if (o.getName().equals("id")) {
-                String txt[] = o.getValue().split("\\.");
-                for (String s : txt) {
-                    list.add(dao.getLapTop(s));
-                }
-            }
-        }
-        int count =1;
-        for (int i = 0; i < list.size(); i++) {
-           count = 1;
-            for (int j = i+1; j < list.size(); j++) {
-                if(list.get(i).getMalaptop() == list.get(j).getMalaptop()){
-                    count++;
-                    list.remove(j);
-                    j--;
-                    list.get(i).setAmount(count);
-                   
-                }
-                
-               
-            }
-             
-        }
+        List<DonHang> list = dao.getDonHang();
         
-       // HttpSession session = request.getSession();
-       // DonHang dh = (DonHang) session.getAttribute("donHang");
-        
-        DonHang donHang = dao.getDonHanglast();
-        request.setAttribute("donhang", donHang);
-        
-        
-        request.setAttribute("dem", count);
-        request.setAttribute("list", list);
-        
-         request.getRequestDispatcher("ThemDonHang.jsp").forward(request, response);
-         
+        request.setAttribute("listC",list); 
+//        response.sendRedirect("ManagerBill.jsp");
+        request.getRequestDispatcher("ManagerBill.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -93,7 +56,11 @@ public class ThemDonHangControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(LayDonHangControll.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -107,7 +74,11 @@ public class ThemDonHangControll extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(LayDonHangControll.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
