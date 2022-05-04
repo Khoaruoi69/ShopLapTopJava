@@ -64,6 +64,18 @@
         <servlet-name>MuahangControll</servlet-name>
         <servlet-class>controll.MuahangControll</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ThemDonHangControll</servlet-name>
+        <servlet-class>controll.ThemDonHangControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>XacNhanDonControll</servlet-name>
+        <servlet-class>controll.XacNhanDonControll</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LayDonHangControll</servlet-name>
+        <servlet-class>controll.LayDonHangControll</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
@@ -170,6 +182,18 @@
     <servlet-mapping>
         <servlet-name>MuahangControll</servlet-name>
         <url-pattern>/MuahangControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThemDonHangControll</servlet-name>
+        <url-pattern>/ThemDonHangControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>XacNhanDonControll</servlet-name>
+        <url-pattern>/XacNhanDonControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LayDonHangControll</servlet-name>
+        <url-pattern>/LayDonHangControll</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

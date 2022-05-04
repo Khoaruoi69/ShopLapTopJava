@@ -14,25 +14,24 @@ import java.util.Date;
 public class DonHang {
     private int madon;
     private boolean thanhtoan;
-    private Date ngaydat;
-    private Date ngaygiao;
+    private String ngaydat;
+    private String ngaygiao;
     private String dienthoai;
-    private String DiaChiGiao;
+    private String Diachigiao;
     private int maacc;
-    private BigDecimal TongTien;
+  //  private BigDecimal TongTien;
 
-    public DonHang(int madon, boolean thanhtoan, Date ngaydat, Date ngaygiao, String dienthoai, String DiaChiGiao, int maacc, BigDecimal TongTien) {
+    public DonHang() {
+    }
+
+    public DonHang(int madon, boolean thanhtoan, String ngaydat, String ngaygiao, String dienthoai, String Diachigiao, int maacc) {
         this.madon = madon;
         this.thanhtoan = thanhtoan;
         this.ngaydat = ngaydat;
         this.ngaygiao = ngaygiao;
         this.dienthoai = dienthoai;
-        this.DiaChiGiao = DiaChiGiao;
+        this.Diachigiao = Diachigiao;
         this.maacc = maacc;
-        this.TongTien = TongTien;
-    }
-
-    public DonHang() {
     }
 
     public int getMadon() {
@@ -51,19 +50,19 @@ public class DonHang {
         this.thanhtoan = thanhtoan;
     }
 
-    public Date getNgaydat() {
+    public String getNgaydat() {
         return ngaydat;
     }
 
-    public void setNgaydat(Date ngaydat) {
+    public void setNgaydat(String ngaydat) {
         this.ngaydat = ngaydat;
     }
 
-    public Date getNgaygiao() {
+    public String getNgaygiao() {
         return ngaygiao;
     }
 
-    public void setNgaygiao(Date ngaygiao) {
+    public void setNgaygiao(String ngaygiao) {
         this.ngaygiao = ngaygiao;
     }
 
@@ -75,12 +74,12 @@ public class DonHang {
         this.dienthoai = dienthoai;
     }
 
-    public String getDiaChiGiao() {
-        return DiaChiGiao;
+    public String getDiachigiao() {
+        return Diachigiao;
     }
 
-    public void setDiaChiGiao(String DiaChiGiao) {
-        this.DiaChiGiao = DiaChiGiao;
+    public void setDiachigiao(String Diachigiao) {
+        this.Diachigiao = Diachigiao;
     }
 
     public int getMaacc() {
@@ -91,15 +90,10 @@ public class DonHang {
         this.maacc = maacc;
     }
 
-    public BigDecimal getTongTien() {
-        return TongTien;
-    }
+   
+   
 
-    public void setTongTien(BigDecimal TongTien) {
-        this.TongTien = TongTien;
-    }
-
-  
+   
 
     
 }

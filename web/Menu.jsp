@@ -23,7 +23,7 @@
                         
                        <c:if test="${sessionScope.acc.admin== true}">
                         <li class="nav-item">
-                            <a style="color: rgb(255 255 255)" class="nav-link" href="#">Manager Bill</a>
+                            <a style="color: rgb(255 255 255)" class="nav-link" href="LayDonHangControll">Manager Bill</a>
                            
                         </li>
                         </c:if>

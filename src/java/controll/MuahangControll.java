@@ -4,12 +4,20 @@
  */
 package controll;
 
+import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.DonHang;
 
 /**
  *
@@ -27,10 +35,22 @@ public class MuahangControll extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("DonHang.jsp").forward(request, response);
 
+        String ngaydat = request.getParameter("ngaydat");
+        String ngaygiao = request.getParameter("ngaygiao");
+        String dienthoai = request.getParameter("sodienthoai");
+        String Diachigiao = request.getParameter("diachigiao");
+        int maacc = Integer.parseInt(request.getParameter("maacc"));
+
+        DAO dao = new DAO();
+        dao.insertDonHang(true, ngaydat, ngaygiao, dienthoai, Diachigiao, maacc);
+        
+        
+        
+        response.sendRedirect("ThemDonHangControll");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -45,7 +65,11 @@ public class MuahangControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(MuahangControll.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -59,7 +83,11 @@ public class MuahangControll extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(MuahangControll.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
