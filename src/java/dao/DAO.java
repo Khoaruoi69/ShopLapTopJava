@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import model.ChiTietDonHang;
 import model.DonHang;
 
 import sun.misc.Signal;
@@ -307,7 +308,7 @@ public class DAO {
         return list;
     }
 
-    // Delete 
+    // Delete product
     public void deleteProduct(String pmalaptop) {
         String query = "delete from Laptop\n"
                 + " where malaptop = ?";
@@ -425,7 +426,7 @@ public class DAO {
         return null;
     }
 
-    /// lam don hang 
+    /// lam don hang ///////////////////////////////////////////////////////////////////////////////
     // insert don hang
     public void insertDonHang(boolean thanhtoan, String ngaydat, String ngaygiao, String dienthoai, String Diachigiao, int maacc) {
         String query = "INSERT  [dbo].[DonHang] \n"
@@ -447,11 +448,62 @@ public class DAO {
         } catch (Exception e) {
         }
     }
-    // lay don hang 
 
-    public List<DonHang> getDonHang(){
+    // lay don hang 
+    public List<DonHang> getDonHang() {
         List<DonHang> list = new ArrayList<>();
         String query = "select * from DonHang";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(
+                        rs.getInt(1),
+                        rs.getBoolean(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7))
+                );
+            }
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+
+    // don hang da thanh toan 
+    // lay don hang 
+    public List<DonHang> getDonHangDTT() {
+        List<DonHang> list = new ArrayList<>();
+        String query = "select * from DonHang where thanhtoan='1'";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(
+                        rs.getInt(1),
+                        rs.getBoolean(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7))
+                );
+            }
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+
+    // don hang chua thanh toan
+    public List<DonHang> getDonHangCTT() {
+        List<DonHang> list = new ArrayList<>();
+        String query = "select * from DonHang where thanhtoan='0'";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -503,7 +555,7 @@ public class DAO {
                 + "VALUES( ?,?,?,?)";
 
         try {
-            for(int i=0;i<4;i++){
+
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
             ps.setInt(1, madon);
@@ -511,16 +563,89 @@ public class DAO {
             ps.setInt(3, soluong);
             ps.setBigDecimal(4, dongia);
 
-           
-            }
-             ps.executeUpdate();
+            ps.executeUpdate();
         } catch (Exception e) {
         }
     }
 
+    // lay thong tin chi tiet don hang
+    public ChiTietDonHang getCTTDonHang(String madon) {
+        String query = "select * from ChiTietDonHang\n"
+                + "where madon = ?";
+
+        try {
+            conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, madon);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new ChiTietDonHang(
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getBigDecimal(4));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    // edit don hang 
+    public void EditBill(String madon, boolean thanhtoan, String ngaydat, String ngaygiao, String dienthoai, String diachigiao, String maacc) {
+        String query = "UPDATE  DonHang set \n"
+                + "      [madon] = ?\n"
+                + "      ,[thanhtoan] = ?\n"
+                + "      ,[ngaydat] = ?\n"
+                + "      ,[ngaygiao] = ?\n"
+                + "      ,[dienthoai] = ?\n"
+                + "      ,[Diachigiao] = ?\n"
+                + "      ,[maacc]= ?\n"
+                + "WHERE madon = ?";
+
+        try {
+            conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, madon);
+            ps.setBoolean(2, thanhtoan);
+            ps.setString(3, ngaydat);
+            ps.setString(4, ngaygiao);
+            ps.setString(5, diachigiao);
+            ps.setString(6, maacc);
+
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
+
+    /// lay don hang theo ma de edit don hang
+    public DonHang getMaDonHang(String madon) {
+        String query = "select * from DonHang where madon= ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, madon);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new DonHang(
+                        rs.getInt(1),
+                        rs.getBoolean(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7));
+            }
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         DAO dao = new DAO();
-         List<DonHang>  list = dao.getDonHang();
+        // List<DonHang> list = dao.getDonHangDTT();
+        DonHang list = dao.getMaDonHang("37");
         System.out.println(list);
 
     }

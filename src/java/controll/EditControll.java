@@ -32,7 +32,8 @@ public class EditControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int malaptop =Integer.parseInt(request.getParameter("malaptop"));
+        
+      int malaptop =Integer.parseInt(request.getParameter("malaptop"));
       String name = request.getParameter("name");
       String image = request.getParameter("image");
       BigDecimal giaban =BigDecimal.valueOf(Double.parseDouble(request.getParameter("price")));

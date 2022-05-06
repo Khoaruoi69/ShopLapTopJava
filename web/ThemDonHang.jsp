@@ -115,17 +115,13 @@
                     <form action="XacNhanDonControll" method="post">
                         <div class="modal-header">						
                             <h4 class="modal-title">Sản phẩm bạn mua</h4>
-
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group d-none">
-
                                 <label>Mã đơn</label>
                                 <input value="${donhang.madon}" name="madon" type="text" class="form-control" readonly required>
-
                             </div>
-
                             <c:forEach items="${list}" var="o">
 
                                 <div class="form-group d-none">

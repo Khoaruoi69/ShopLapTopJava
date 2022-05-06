@@ -8,21 +8,16 @@ import dao.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import model.DonHang;
-import model.LapTop;
+import model.ChiTietDonHang;
 
 /**
  *
  * @author Khoa
  */
-public class XacNhanDonControll extends HttpServlet {
+public class InformationDonHang extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,30 +31,17 @@ public class XacNhanDonControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int madon = Integer.parseInt(request.getParameter("madon"));
-        int malaptop = Integer.parseInt(request.getParameter("malaptop"));
-        int soluong = Integer.parseInt(request.getParameter("soluong"));
-        BigDecimal giaban = BigDecimal.valueOf(Double.parseDouble(request.getParameter("giaban")));
-
-       DAO dao = new DAO();
-        Cookie arr[] = request.getCookies();
-        List<LapTop> list = new ArrayList<>();
-
-        for (Cookie o : arr) {
-            if (o.getName().equals("id")) {
-                String txt[] = o.getValue().split("\\.");
-                for (String s : txt) {
-                    list.add(dao.getLapTop(s));
-                   
-                }
-            }
-        }
-        for(int i=0;i<list.size();i++){
-             DAO dao1 = new DAO();
-             dao1.insertCTDonHang(madon, malaptop, soluong, giaban);
-        }
-
-        response.sendRedirect("HomeControll");
+        
+        String madon = request.getParameter("pmadon");
+        
+        DAO dao = new DAO();
+        ChiTietDonHang ctdh = dao.getCTTDonHang(madon);
+        
+        
+        request.setAttribute("list", ctdh);
+        request.getRequestDispatcher("InformationDonHang.jsp").forward(request, response);
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

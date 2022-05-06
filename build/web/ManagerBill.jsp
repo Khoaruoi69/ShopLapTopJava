@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : ManagerBill
     Created on : May 4, 2022, 9:38:55 PM
     Author     : Khoa
@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-     <head>
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,7 @@
             .container{
                 width: 1245px;
             }
-            
+
         </style>
     <body>
         <div class="container">
@@ -39,8 +39,10 @@
                             <h2>Manage <b>Bill</b></h2>
                         </div>
                         <div class="col-sm-6">
-                            <!--<a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>-->
-                           						
+
+                            <a href="LayDonHangDTT" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Đơn hàng đã thanh toán</span></a>
+                            <a href="LayDonHangCTT" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Đơn hàng chưa thanh toán</span></a>
+                            <!--<a href="LayDonHangControll" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Tất cả đơn hàng</span></a>-->
                         </div>
                     </div>
                 </div>
@@ -56,19 +58,19 @@
                             <th>Mã đơn</th>
                             <th>Ngày đặt </th>
                             <th>ngày giao</th>
-                            
+
                             <th>Số điện thoại</th>
                             <th>Địa chỉ giao</th><!-- comment -->
                             <th>Mã khách hàng</th>
                             <th>Trạng thái</th>
-                            
-                            
-                 </tr>
-                        
+
+
+                        </tr>
+
                     </thead>
-                  
-                        <c:forEach items="${listC}" var="o">
-                             <tbody>
+
+                    <c:forEach items="${listC}" var="o">
+                        <tbody>
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
@@ -77,23 +79,23 @@
                                     </span>
                                 </td>
                                 <td>${o.madon}</td>
-                                <td>${o.ngaydat}</td>    
+                                <td>${o.ngaydat}</td>
                                 <td>${o.ngaygiao}</td>
                                 <td>${o.dienthoai}</td>
                                 <td>${o.diachigiao}</td>
                                 <td>${o.maacc}</td>
                                 <td>${o.thanhtoan}</td>
-                                
-                                
                                 <td>
-                                    <a href="LoadControll?pmalaptop=${o.madon}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a href="DeleteControll?pmalaptop=${o.madon}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                    <a href="EditDonHang?pmadon=${o.madon}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a  href="InformationDonHang?pmadon=${o.madon}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Information">info</i></a>
                                 </td>
                             </tr>
-                            </tbody>
-                        </c:forEach>
-                   
+                        </tbody>
+                    </c:forEach>
+
                 </table>
+
+
                 <div class="clearfix">
                     <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
                     <ul class="pagination">
@@ -110,13 +112,16 @@
         </div>
         
         
-        
-                            
+
+
+
+
         <!-- Delete Modal HTML -->
         <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
+
         <script src="js/manager.js" type="text/javascript"></script>
         <script>
-               
+
         </script>
     </body>
 </html>

@@ -52,7 +52,7 @@
                         </div>
                             <!--c:if test="${sessionScope.acc != null}" -->
                             <a class="btn btn-light btn-sm ml-3" href="print" >
-                            <i class="fa fa-shopping-cart"  aria-hidden="true" >  Giỏ hàng</i>
+                            <i class="fa fa-shopping-cart"  aria-hidden="true" > Giỏ hàng</i>
                             <span class="badge badge-light">${dem}</span>
                             </a>
                             <!--/c:if> -->
