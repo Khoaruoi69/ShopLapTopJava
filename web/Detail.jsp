@@ -56,6 +56,10 @@
             .currSign:after {
                 content: ' VNÐ';
             }
+            .img{
+                width: 900px;
+                height: 320px;
+            }
 
 
         </style>

@@ -96,6 +96,18 @@
         <servlet-name>LoadBill</servlet-name>
         <servlet-class>controll.LoadBill</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManagerAccount</servlet-name>
+        <servlet-class>controll.ManagerAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadAccount</servlet-name>
+        <servlet-class>controll.LoadAccount</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditAccountQT</servlet-name>
+        <servlet-class>controll.EditAccountQT</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
@@ -234,6 +246,18 @@
     <servlet-mapping>
         <servlet-name>LoadBill</servlet-name>
         <url-pattern>/LoadBill</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerAccount</servlet-name>
+        <url-pattern>/ManagerAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadAccount</servlet-name>
+        <url-pattern>/LoadAccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditAccountQT</servlet-name>
+        <url-pattern>/EditAccountQT</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
