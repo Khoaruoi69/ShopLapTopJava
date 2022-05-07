@@ -592,26 +592,18 @@ public class DAO {
 
     // edit don hang 
     public void EditBill(String madon, boolean thanhtoan, String ngaydat, String ngaygiao, String dienthoai, String diachigiao, String maacc) {
-        String query = "UPDATE  DonHang set \n"
-                + "      [madon] = ?\n"
-                + "      ,[thanhtoan] = ?\n"
-                + "      ,[ngaydat] = ?\n"
-                + "      ,[ngaygiao] = ?\n"
-                + "      ,[dienthoai] = ?\n"
-                + "      ,[Diachigiao] = ?\n"
-                + "      ,[maacc]= ?\n"
-                + "WHERE madon = ?";
-
+        String query = "UPDATE DonHang set [thanhtoan]= ?,[ngaydat]= ?, [ngaygiao]= ?, [dienthoai]= ?, [Diachigiao]= ?, [maacc]= ? WHERE madon= ?";
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
-            ps.setString(1, madon);
-            ps.setBoolean(2, thanhtoan);
-            ps.setString(3, ngaydat);
-            ps.setString(4, ngaygiao);
+            
+            ps.setBoolean(1, thanhtoan);
+            ps.setString(2, ngaydat);
+            ps.setString(3, ngaygiao);
+            ps.setString(4, dienthoai);
             ps.setString(5, diachigiao);
             ps.setString(6, maacc);
-
+            ps.setString(7, madon);
             ps.executeUpdate();
 
         } catch (Exception e) {

@@ -31,22 +31,17 @@ public class EditDonHang extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String madon =request.getParameter("pmadon");
-        boolean thanhtoan = Boolean.parseBoolean(request.getParameter("trangthai"));
         String madon1=request.getParameter("madon");
+        boolean thanhtoan = Boolean.parseBoolean(request.getParameter("trangthai"));
         String ngaydat = request.getParameter("ngaydat");
         String ngaygiao = request.getParameter("ngaygiao");
         String dienthoai = request.getParameter("dienthoai");
         String diachigiao = request.getParameter("diachigiao");
         String maacc = request.getParameter("maacc");
+    
         
         DAO dao = new DAO();
-        DonHang dh = dao.getMaDonHang(madon);
-        request.setAttribute("list",dh);
-       
-        dao.EditBill(madon1, thanhtoan, ngaydat, ngaygiao, dienthoai, diachigiao, maacc);
-        
-        
+        dao.EditBill( madon1, thanhtoan, ngaydat, ngaygiao, dienthoai, diachigiao, maacc);
         response.sendRedirect("LayDonHangControll");
     }
 

@@ -25,8 +25,8 @@
                 width: 200px;
                 height: 120px;
             }
-            
-        
+
+
         </style>
     <body>
         <div class="container">
@@ -41,51 +41,53 @@
                     </div>
                 </div>
             </div>
-            <div id="editEmployeeModal">
+            <div id="editDonHang">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form action="EditDonHang" method="post">
                             <div class="modal-header">						
                                 <h4 class="modal-title">Edit Bill</h4>
-                                <a class="close" href="ManagerControll" type="button" class="btn btn-success" aria-hidden="true" >x</a>
+                                <a class="close" href="LayDonHangControll" type="button" class="btn btn-success" aria-hidden="true" >x</a>
                             </div>
                             <div class="modal-body">					
                                 <div class="modal-body">
                                     <div class="form-group">
-                                <label>Mã đơn</label>
-                                <input value="${list.madon}" name="madon" type="text" class="form-control" readonly required>
-                            </div>
-                            <div class="form-group">
-                                <label>Ngày đặt </label>
-                                <input value="${list.ngaydat}" name="ngaydat" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Ngày giao</label>
-                                <input value="${list.ngaygiao}" name="ngaygiao" type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group ">
-                                <label>Số điện thoại</label>
-                                <input value="${list.dienthoai}"name="dienthoai" type="text" class="form-control" required>
-                            </div>
-                             <div class="form-group">
-                                <label>Địa chỉ giao</label>
-                                <input value="${list.diachigiao}" name="diachigiao" type="text" class="form-control" required>
-                            </div>
-                             <div class="form-group">
-                                <label>Mã khách hàng</label>
-                                <input value="${list.maacc}" name="maacc" type="text" class="form-control" required>
-                            </div>
-                             <div class="form-group">
-                                <label>Trạng thái</label>
-                                <input value="${list.thanhtoan}" name="trangthai" type="text" class="form-control" required>
-                             </div>
-                            
+                                        <label>Mã đơn</label>
+                                        <input value="${listPP.madon}" name="madon" type="text" class="form-control" readonly required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Trạng thái</label>
+                                        <input value="${listPP.thanhtoan}" name="trangthai" type="text" class="form-control" required>
+                                        </div>
+                                    <div class="form-group">                                  
+                                        <label>Ngày đặt </label>
+                                        <input value="${listPP.ngaydat}" name="ngaydat" type="text" class="form-control" readonly required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Ngày giao</label>
+                                        <input value="${listPP.ngaygiao}" name="ngaygiao" type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>Số điện thoại</label>
+                                        <input value="${listPP.dienthoai}"name="dienthoai" type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Địa chỉ giao</label>
+                                        <input value="${listPP.diachigiao}" name="diachigiao" type="text" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Mã khách hàng</label>
+                                        <input value="${listPP.maacc}" name="maacc" type="text" class="form-control" readonly required>
+                                    </div>
 
-                        </div>
+
+
+                                </div>
 
                             </div>
                             <div class="modal-footer">
                                 <input type="submit" class="btn btn-success" value="Edit">
+                                <!--<a herf="LayDonHangControll" type="submit" class="btn btn-success">Edit</a>-->
                             </div>
                         </form>
                     </div>
@@ -93,10 +95,10 @@
             </div>
 
         </div>
-                            
-                            
-                            <!-- format tien -->
-        
+
+
+        <!-- format tien -->
+
 
         <script src="js/manager.js" type="text/javascript"></script>
     </body>

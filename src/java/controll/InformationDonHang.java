@@ -41,7 +41,6 @@ public class InformationDonHang extends HttpServlet {
         request.setAttribute("list", ctdh);
         request.getRequestDispatcher("InformationDonHang.jsp").forward(request, response);
         
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

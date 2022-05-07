@@ -86,7 +86,7 @@
                                 <td>${o.maacc}</td>
                                 <td>${o.thanhtoan}</td>
                                 <td>
-                                    <a href="EditDonHang?pmadon=${o.madon}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                                    <a href="LoadBill?pmadon=${o.madon}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                     <a  href="InformationDonHang?pmadon=${o.madon}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Information">info</i></a>
                                 </td>
                             </tr>

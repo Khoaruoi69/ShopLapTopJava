@@ -92,6 +92,10 @@
         <servlet-name>EditDonHang</servlet-name>
         <servlet-class>controll.EditDonHang</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadBill</servlet-name>
+        <servlet-class>controll.LoadBill</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
@@ -226,6 +230,10 @@
     <servlet-mapping>
         <servlet-name>EditDonHang</servlet-name>
         <url-pattern>/EditDonHang</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadBill</servlet-name>
+        <url-pattern>/LoadBill</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
