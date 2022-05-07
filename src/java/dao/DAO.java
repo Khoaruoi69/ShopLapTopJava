@@ -633,11 +633,81 @@ public class DAO {
         }
         return null;
     }
+    
+    
+    ///// Lay thong các Account 
+    
+    public List<Account> getAccount() {
+        List<Account> list = new ArrayList<>();
+        String query = "select * from Account ";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Account(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getBoolean(6),
+                        rs.getBoolean(7))
+                );
+            }
+        } catch (Exception e) {
 
+        }
+        return list;
+    }
+    /// edit account  lay ma accout 
+    public Account getMaAccount(String maacc) {
+        String query = "select * from Account where maacc= ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, maacc);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Account(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getBoolean(6),
+                        rs.getBoolean(7));
+            }
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+    /// edit account 
+    public void EditAccount(String maacc, String hoten, String matkhau, String email, String dienthoai, boolean admin, boolean sell) {
+        String query = "UPDATE Account set [hoten]= ?,[matkhau]= ?, [email]= ?, [dienthoai]= ?, [admin]= ?, [sell]= ?  WHERE maacc= ?";
+        try {
+            conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setString(1, hoten);
+            ps.setString(2, matkhau);
+            ps.setString(3, email);
+            ps.setString(4, dienthoai);
+            ps.setBoolean(5, admin);
+            ps.setBoolean(6, sell);
+            ps.setString(7, maacc);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+        }
+    }
+
+    
+    
     public static void main(String[] args) {
         DAO dao = new DAO();
-        // List<DonHang> list = dao.getDonHangDTT();
-        DonHang list = dao.getMaDonHang("37");
+        // List<Account> list = dao.getAccount();
+        Account list = dao.getMaAccount("4");
         System.out.println(list);
 
     }

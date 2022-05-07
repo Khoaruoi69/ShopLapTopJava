@@ -48,7 +48,7 @@
                     <div class="modal-content">
                         <form action="InformationDonHang" method="#">
                             <div class="modal-header">						
-                                <h4 class="modal-title">Thong tin don hang</h4>
+                                <h4 class="modal-title">Thông tin đơn hàng</h4>
                                 <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
                                 <a class="close" href="LayDonHangControll" type="button" class="btn btn-success" aria-hidden="true" >x</a>
                             </div>

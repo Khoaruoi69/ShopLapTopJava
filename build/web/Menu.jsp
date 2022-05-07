@@ -30,7 +30,7 @@
                         
                         <c:if test="${sessionScope.acc.admin== true}">
                         <li class="nav-item">
-                            <a style="color: rgb(255 255 255)" class="nav-link" href="#">Manager Account</a>
+                            <a style="color: rgb(255 255 255)" class="nav-link" href="ManagerAccount">Manager Account</a>
                            
                         </li>
                         </c:if>
