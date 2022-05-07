@@ -5,20 +5,19 @@
 package controll;
 
 import dao.DAO;
+import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.math.BigDecimal;
-
+import model.ChiTietDonHang;
 
 /**
  *
  * @author Khoa
  */
-public class EditControll extends HttpServlet {
+public class InformationDonHang extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,25 +32,15 @@ public class EditControll extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-      int malaptop =Integer.parseInt(request.getParameter("malaptop"));
-      String name = request.getParameter("name");
-      String image = request.getParameter("image");
-      BigDecimal giaban =BigDecimal.valueOf(Double.parseDouble(request.getParameter("price")));
-      String CPU = request.getParameter("CPU");
-      String GPU = request.getParameter("GPU");
-      String RAM = request.getParameter("RAM");
-      String Hardware = request.getParameter("hardware");
-      String Pin = request.getParameter("pin");
-      String manhinh = request.getParameter("manhinh");
-      String mota = request.getParameter("mota");
-      boolean trangthai = Boolean.parseBoolean(request.getParameter("trangthai"));
-      int slt = Integer.parseInt(request.getParameter("slt"));
-      int hang = Integer.parseInt(request.getParameter("hang"));
-      
-      
-      DAO dao =new DAO();
-      dao.EditProduct(name, giaban, mota, image, hang, CPU, GPU, RAM, Hardware, manhinh, slt, Pin, trangthai, malaptop);     
-      response.sendRedirect("ManagerControll");
+        String madon = request.getParameter("pmadon");
+        
+        DAO dao = new DAO();
+        ChiTietDonHang ctdh = dao.getCTTDonHang(madon);
+        
+        
+        request.setAttribute("list", ctdh);
+        request.getRequestDispatcher("InformationDonHang.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

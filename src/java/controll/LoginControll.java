@@ -44,7 +44,7 @@ public class LoginControll extends HttpServlet {
          }else{
              HttpSession session = request.getSession();
              session.setAttribute("acc", kh);
-             //session.setMaxInactiveInterval(10); // chinh co session ton tai duoc 10s
+             session.setMaxInactiveInterval(100000); // chinh co session ton tai duoc 10s
           response.sendRedirect("HomeControll"); // c2: ko dây du lieu qua trang 
           //   request.getRequestDispatcher("HomeControll").forward(request, response);
          }

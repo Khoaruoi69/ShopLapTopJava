@@ -76,6 +76,26 @@
         <servlet-name>LayDonHangControll</servlet-name>
         <servlet-class>controll.LayDonHangControll</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LayDonHangDTT</servlet-name>
+        <servlet-class>controll.LayDonHangDTT</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LayDonHangCTT</servlet-name>
+        <servlet-class>controll.LayDonHangCTT</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>InformationDonHang</servlet-name>
+        <servlet-class>controll.InformationDonHang</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditDonHang</servlet-name>
+        <servlet-class>controll.EditDonHang</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadBill</servlet-name>
+        <servlet-class>controll.LoadBill</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
@@ -194,6 +214,26 @@
     <servlet-mapping>
         <servlet-name>LayDonHangControll</servlet-name>
         <url-pattern>/LayDonHangControll</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LayDonHangDTT</servlet-name>
+        <url-pattern>/LayDonHangDTT</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LayDonHangCTT</servlet-name>
+        <url-pattern>/LayDonHangCTT</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InformationDonHang</servlet-name>
+        <url-pattern>/InformationDonHang</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditDonHang</servlet-name>
+        <url-pattern>/EditDonHang</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadBill</servlet-name>
+        <url-pattern>/LoadBill</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

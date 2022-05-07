@@ -35,12 +35,12 @@ public class LayDonHangControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException,Exception {
         response.setContentType("text/html;charset=UTF-8");
-        
+        String madon = request.getParameter("pmadon");
         DAO dao = new DAO();
         List<DonHang> list = dao.getDonHang();
         
+        
         request.setAttribute("listC",list); 
-//        response.sendRedirect("ManagerBill.jsp");
         request.getRequestDispatcher("ManagerBill.jsp").forward(request, response);
     }
 
