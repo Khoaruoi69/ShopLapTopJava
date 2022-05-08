@@ -5,21 +5,19 @@
 package controll;
 
 import dao.DAO;
-import model.Account;
-import model.Account;
+import java.io.IOException;
+import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-
+import model.Account;
 
 /**
  *
  * @author Khoa
  */
-public class SignupControll extends HttpServlet {
+public class LoadAccountKH extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,32 +31,11 @@ public class SignupControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String user = request.getParameter("user");
-        String email = request.getParameter("email");
-        String SDT = request.getParameter("SDT");
-        String pass = request.getParameter("pass");
-        String repass = request.getParameter("repass");
-        boolean admin = false;
-        boolean sell =false;
-        if(!pass.equals(repass)){
-            response.sendRedirect("Login.jsp");
-        }  
-        else{
-            DAO dao = new DAO();  
-            
-            Account kh = dao.checkAccountExits(SDT);
-            
-            if(kh==null){
-                // dc sign up
-                dao.Signup(user, pass, email, SDT, admin, sell);
-                response.sendRedirect("Login.jsp");
-            }
-            
-            else{
-                response.sendRedirect("HomeControll");
-            }
-        }
-        // sign up 
+        String maacc = request.getParameter("maacc");
+        DAO dao = new DAO();
+        Account ac =dao.getMaAccount(maacc);
+        request.setAttribute("listA", ac);
+        request.getRequestDispatcher("EditAccountKH.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

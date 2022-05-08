@@ -27,6 +27,7 @@
                            
                         </li>
                         </c:if>
+                       
                         
                         <c:if test="${sessionScope.acc.admin== true}">
                         <li class="nav-item">
@@ -50,12 +51,12 @@
                                 </button>
                             </div>
                         </div>
-                            <!--c:if test="${sessionScope.acc != null}" -->
+                            <c:if test="${sessionScope.acc != null}"> 
                             <a class="btn btn-light btn-sm ml-3" href="print" >
                             <i class="fa fa-shopping-cart"  aria-hidden="true" > Giỏ hàng</i>
                             <span class="badge badge-light">${dem}</span>
                             </a>
-                            <!--/c:if> -->
+                           </c:if> 
                      
                     </form>
                         
@@ -64,7 +65,7 @@
                         <c:if test="${sessionScope.acc != null}">
                             <li class="nav-item">
                                 
-                                <a style="color: rgb(255 255 255)" class="nav-link fa fa-user" href="#"> Hello ${sessionScope.acc.hoten}</a>
+                                <a href="LoadAccountKH?maacc=${sessionScope.acc.maacc}" style="color: rgb(255 255 255)" class="nav-link fa fa-user"> Hello ${sessionScope.acc.hoten}</a>
                             </li>
                         <li class="nav-item">
                             <a style="color: rgb(255 255 255)" class="nav-link fa fa-sign-out " href="LogoutControll"> Đăng xuất</a>
