@@ -108,6 +108,18 @@
         <servlet-name>EditAccountQT</servlet-name>
         <servlet-class>controll.EditAccountQT</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadAccountKH</servlet-name>
+        <servlet-class>controll.LoadAccountKH</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagerAccountKH</servlet-name>
+        <servlet-class>controll.ManagerAccountKH</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditAccountKH</servlet-name>
+        <servlet-class>controll.EditAccountKH</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
@@ -258,6 +270,18 @@
     <servlet-mapping>
         <servlet-name>EditAccountQT</servlet-name>
         <url-pattern>/EditAccountQT</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadAccountKH</servlet-name>
+        <url-pattern>/LoadAccountKH</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerAccountKH</servlet-name>
+        <url-pattern>/ManagerAccountKH</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditAccountKH</servlet-name>
+        <url-pattern>/EditAccountKH</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

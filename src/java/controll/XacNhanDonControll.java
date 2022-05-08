@@ -36,12 +36,12 @@ public class XacNhanDonControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int madon = Integer.parseInt(request.getParameter("madon"));
-        int malaptop = Integer.parseInt(request.getParameter("malaptop"));
-        int soluong = Integer.parseInt(request.getParameter("soluong"));
-        BigDecimal giaban = BigDecimal.valueOf(Double.parseDouble(request.getParameter("giaban")));
+//        int madon = Integer.parseInt(request.getParameter("madon"));
+//        int malaptop = Integer.parseInt(request.getParameter("malaptop"));
+//        int soluong = Integer.parseInt(request.getParameter("soluong"));
+//        BigDecimal giaban = BigDecimal.valueOf(Double.parseDouble(request.getParameter("giaban")));
 
-       DAO dao = new DAO();
+        DAO dao = new DAO();
         Cookie arr[] = request.getCookies();
         List<LapTop> list = new ArrayList<>();
 
@@ -50,13 +50,18 @@ public class XacNhanDonControll extends HttpServlet {
                 String txt[] = o.getValue().split("\\.");
                 for (String s : txt) {
                     list.add(dao.getLapTop(s));
-                   
+
                 }
             }
         }
-        for(int i=0;i<list.size();i++){
-             DAO dao1 = new DAO();
-             dao1.insertCTDonHang(madon, malaptop, soluong, giaban);
+
+        for (LapTop o : list) {          
+            int madon = Integer.parseInt(request.getParameter("madon"));
+            int malaptop = Integer.parseInt(request.getParameter("malaptop"));
+            int soluong = Integer.parseInt(request.getParameter("soluong"));
+            BigDecimal giaban = BigDecimal.valueOf(Double.parseDouble(request.getParameter("giaban")));
+            DAO dao1 = new DAO();
+            dao1.insertCTDonHang(madon, malaptop, soluong, giaban);
         }
 
         response.sendRedirect("HomeControll");

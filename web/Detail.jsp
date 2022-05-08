@@ -78,6 +78,7 @@
                                         <article class="gallery-wrap"> 
                                             <div class="img-big-wrap">
                                                 <div> <a href="#"><img src="${detail.hinh}"></a></div>
+
                                         </div> <!-- slider-product.// -->
 
                                     </article> <!-- gallery-wrap .end// -->
@@ -107,18 +108,7 @@
 
                                             ${detail.mota} </p></dd>
                                         </dl>
-                                        <!--                                        <dl class="param param-feature">
-                                                                                    <dt>Model#</dt>
-                                                                                    <dd>12345611</dd>
-                                                                                </dl>   item-property-hor .// 
-                                                                                <dl class="param param-feature">
-                                                                                    <dt>Color</dt>
-                                                                                    <dd>Black and white</dd>
-                                                                                </dl>   item-property-hor .// 
-                                                                                <dl class="param param-feature">
-                                                                                    <dt>Delivery</dt>
-                                                                                    <dd>Russia, USA, and Europe</dd>
-                                                                                </dl>   item-property-hor .// -->
+
 
                                         <hr>
                                         <div class="row">
@@ -137,18 +127,19 @@
 
                                         </div> <!-- row.// -->
                                         <hr>
-                                        <a href="cart?id=${detail.malaptop}" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
-                                        <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
+                                        <a href="cart?id=${detail.malaptop}" class="btn btn-lg btn-primary text-uppercase"> Mua hàng </a>
+                                        <!--<a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>-->
                                     </article> <!-- card-body.// -->
                                 </aside> <!-- col.// -->
+                                
                             </div> <!-- row.// -->
                         </div> <!-- card.// -->
-
 
                     </div>
                 </div>
             </div>
         </div>
+
         <jsp:include page="footer.jsp"></jsp:include>
         <script>
             let x = document.querySelectorAll(".myDIV");

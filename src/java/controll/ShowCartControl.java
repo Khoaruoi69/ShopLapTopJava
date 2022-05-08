@@ -55,14 +55,17 @@ public class ShowCartControl extends HttpServlet {
         
          
          
-          BigDecimal count = new BigDecimal(BigInteger.ZERO,  3);
+          BigDecimal Count = new BigDecimal(BigInteger.ZERO,  3);
           BigDecimal total = new BigDecimal(BigInteger.ZERO,  3);
+          
                  
-         for (LapTop o : list) {
-            total=o.getGiaban().multiply(BigDecimal.valueOf(o.getAmount()));
-            //total = total + o.getAmount() * o.getGiaban();
-            total.add(count);
+         for (LapTop p : list) {
+            total= total.add(p.getGiaban().multiply(BigDecimal.valueOf(p.getAmount())));
+          
         }
+         
+         
+         
         request.setAttribute("list", list);
         request.setAttribute("total", total);
         request.setAttribute("dem", dem);

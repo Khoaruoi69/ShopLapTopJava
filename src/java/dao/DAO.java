@@ -262,9 +262,10 @@ public class DAO {
     }
 
     // SIgn UPP
-    public void Signup(String user, String pass, String email, String dienthoai) {
+    public void Signup(String user, String pass, String email, String dienthoai, boolean admin, boolean  sell) {
         String query = "insert into Account\n"
-                + "values(?,?,?,?)";
+                + "( [hoten], [matkhau], [email] ,[dienthoai], [admin], [sell] )\n"
+                + "values(?,?,?,?,?,?)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -272,6 +273,8 @@ public class DAO {
             ps.setString(2, pass);
             ps.setString(3, email);
             ps.setString(4, dienthoai);
+            ps.setBoolean(5, admin);
+             ps.setBoolean(6, sell);
             ps.executeUpdate();
         } catch (Exception e) {
         }

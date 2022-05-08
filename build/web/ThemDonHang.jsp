@@ -118,12 +118,12 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
-                            <div class="form-group d-none">
+                            
+                            <c:forEach items="${list}" var="o">
+                                <div class="form-group d-none">
                                 <label>Mã đơn</label>
                                 <input value="${donhang.madon}" name="madon" type="text" class="form-control" readonly required>
                             </div>
-                            <c:forEach items="${list}" var="o">
-
                                 <div class="form-group d-none">
                                     <label>Mã Laptop</label>
                                     <input value="${o.malaptop}" name="malaptop" type="text" class="form-control" readonly required>
