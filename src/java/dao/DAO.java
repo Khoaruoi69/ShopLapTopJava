@@ -572,25 +572,26 @@ public class DAO {
     }
 
     // lay thong tin chi tiet don hang
-    public ChiTietDonHang getCTTDonHang(String madon) {
+    public List<ChiTietDonHang> getCTTDonHang(String madon) {
+        List<ChiTietDonHang> list = new ArrayList<>();
         String query = "select * from ChiTietDonHang\n"
                 + "where madon = ?";
-
+        
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
             ps = conn.prepareStatement(query);
             ps.setString(1, madon);
             rs = ps.executeQuery();
             while (rs.next()) {
-                return new ChiTietDonHang(
+                list.add(new ChiTietDonHang(
                         rs.getInt(1),
                         rs.getInt(2),
                         rs.getInt(3),
-                        rs.getBigDecimal(4));
+                        rs.getBigDecimal(4)));
             }
         } catch (Exception e) {
         }
-        return null;
+        return list;
     }
 
     // edit don hang 
@@ -709,8 +710,8 @@ public class DAO {
     
     public static void main(String[] args) {
         DAO dao = new DAO();
-        // List<Account> list = dao.getAccount();
-        Account list = dao.getMaAccount("4");
+         List<ChiTietDonHang> list = dao.getCTTDonHang("68");
+       // Account list = dao.getMaAccount("4");
         System.out.println(list);
 
     }

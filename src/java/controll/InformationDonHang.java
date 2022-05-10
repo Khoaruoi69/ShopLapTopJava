@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 import model.ChiTietDonHang;
 
 /**
@@ -35,9 +36,7 @@ public class InformationDonHang extends HttpServlet {
         String madon = request.getParameter("pmadon");
         
         DAO dao = new DAO();
-        ChiTietDonHang ctdh = dao.getCTTDonHang(madon);
-        
-        
+        List<ChiTietDonHang> ctdh = dao.getCTTDonHang(madon);
         request.setAttribute("list", ctdh);
         request.getRequestDispatcher("InformationDonHang.jsp").forward(request, response);
         

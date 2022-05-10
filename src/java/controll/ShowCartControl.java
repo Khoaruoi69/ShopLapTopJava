@@ -63,6 +63,7 @@ public class ShowCartControl extends HttpServlet {
             total= total.add(p.getGiaban().multiply(BigDecimal.valueOf(p.getAmount())));
           
         }
+          
          
          
          
