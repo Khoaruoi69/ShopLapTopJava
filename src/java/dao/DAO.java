@@ -479,12 +479,15 @@ public class DAO {
 
     // don hang da thanh toan 
     // lay don hang 
-    public List<DonHang> getDonHangDTT() {
+    public List<DonHang> getDonHangDTT(int index) {
         List<DonHang> list = new ArrayList<>();
-        String query = "select * from DonHang where thanhtoan='1'";
+        String query = "select * from DonHang \n" +
+                        "where thanhtoan= '1' \n" +
+                        "order by madon offset ? rows fetch first 10 rows only ";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
+            ps.setInt(1, (index -1)*10);
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new DonHang(
@@ -504,12 +507,15 @@ public class DAO {
     }
 
     // don hang chua thanh toan
-    public List<DonHang> getDonHangCTT() {
+    public List<DonHang> getDonHangCTT(int index) {
         List<DonHang> list = new ArrayList<>();
-        String query = "select * from DonHang where thanhtoan='0'";
+        String query = "select * from DonHang \n" +
+                        "where thanhtoan= '0' \n" +
+                        "order by madon offset ? rows fetch first 10 rows only ";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
+            ps.setInt(1, (index -1)*10);
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new DonHang(
@@ -707,6 +713,198 @@ public class DAO {
     }
 
     
+    // Phân trang 
+    public int getNumberPage(){
+        String query = "select count(*) from Laptop";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                int total = rs.getInt(1);
+                int countPage = 0;
+                countPage = total/6;
+                if(total%6 !=0){
+                    countPage ++;
+                }
+                return countPage;
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+    
+    // lay so phan tu trong trang 
+    
+    public List<LapTop> getPaging(int index) {     
+        String query = "select * from Laptop order by malaptop offset ? rows fetch first 6 rows only";
+        List<LapTop> list = new ArrayList<>();
+        try {
+            conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, (index -1)*6);
+            rs=ps.executeQuery();
+            while (rs.next()) {
+                list.add(new LapTop(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getBigDecimal(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getBoolean(14))
+                );
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    
+    // Phan trang edit san pham
+     public int getNumberPage1(){
+        String query = "select count(*) from Laptop";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                int total = rs.getInt(1);
+                int countPage = 0;
+                countPage = total/4;
+                if(total%4 !=0){
+                    countPage ++;
+                }
+                return countPage;
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+    //
+    public List<LapTop> getPaging1(int index) {     
+        String query = "select * from Laptop order by malaptop offset ? rows fetch first 4 rows only";
+        List<LapTop> list = new ArrayList<>();
+        try {
+            conn = new DBContext().getConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, (index -1)*4);
+            rs=ps.executeQuery();
+            while (rs.next()) {
+                list.add(new LapTop(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getBigDecimal(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getBoolean(14))
+                );
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+    // phan trang don hang 
+    public int getNumberPageDH(){
+        String query = "select count(*) from DonHang";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                int total = rs.getInt(1);
+                int countPage = 0;
+                countPage = total/10;
+                if(total%10 !=0){
+                    countPage ++;
+                }
+                return countPage;
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+    /// phan trnang don hang
+    public List<DonHang> getDonHang1(int index) {
+        List<DonHang> list = new ArrayList<>();
+        String query = "select * from DonHang order by madon offset ? rows fetch first 10 rows only";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+             ps.setInt(1, (index -1)*10);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(
+                        rs.getInt(1),
+                        rs.getBoolean(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7))
+                );
+            }
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
+    // phna trang don hang chua thanh toan 
+    public int getNumberPageCTT(){
+        String query = "select count(*) from DonHang where thanhtoan= '0'";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                int total = rs.getInt(1);
+                int countPage = 0;
+                countPage = total/10;
+                if(total%10 !=0){
+                    countPage ++;
+                }
+                return countPage;
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+    // phan trang cho don hang da thanh toán
+    public int getNumberPageDTT(){
+        String query = "select count(*) from DonHang where thanhtoan= '1'";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                int total = rs.getInt(1);
+                int countPage = 0;
+                countPage = total/10;
+                if(total%10 !=0){
+                    countPage ++;
+                }
+                return countPage;
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+        
     
     public static void main(String[] args) {
         DAO dao = new DAO();

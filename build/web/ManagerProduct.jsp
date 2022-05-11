@@ -22,6 +22,7 @@
 
 
         <link href="css/manager.css" rel="stylesheet" type="text/css"/>
+        <jsp:useBean id="a" class="dao.DAO" scope="request"></jsp:useBean>
         <style>
             img{
                 width: 200px;
@@ -40,12 +41,12 @@
                         <div class="col-sm-6">
                             <h2>Manage <b>Product</b></h2>
                         </div>
-                        
+
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
                         </div>
-                        
-                        
+
+
 
 
                     </div>
@@ -109,18 +110,14 @@
 
                 </table>
                 <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Previous</a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                    </ul>
+                        <ul class="pagination">   
+                        <c:forEach begin="1" end="${a.numberPage1}" var="i">
+                                <li class="page-item active"><a class="page-link" href="ManagerControll?index=${i}">${i}</a></li>
+                                </c:forEach>
+                        </ul>
                 </div>
             </div>
+            <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
         </div>
 
 
@@ -205,7 +202,7 @@
 
 
         <!-- Delete Modal HTML -->
-        <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
+        
         <script src="js/manager.js" type="text/javascript"></script>
         <script>
 

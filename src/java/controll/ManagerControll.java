@@ -40,8 +40,13 @@ public class ManagerControll extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
      //   Account a = (Account) session.getAttribute("acc"); // ep kieu ve a
+     String index = request.getParameter("index");
+       if(index==null){
+           index = "1";
+       }
+       int indexPage = Integer.parseInt(index);
         DAO dao = new DAO();
-        List<LapTop> list =dao.getProduct();
+        List<LapTop> list =dao.getPaging1(indexPage);
          List<Hang> listH = dao.getAllHang();
          
          request.setAttribute("ListH", listH);

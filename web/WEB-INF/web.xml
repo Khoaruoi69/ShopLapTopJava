@@ -120,6 +120,10 @@
         <servlet-name>EditAccountKH</servlet-name>
         <servlet-class>controll.EditAccountKH</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PaginControl</servlet-name>
+        <servlet-class>controll.PaginControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControll</servlet-name>
         <url-pattern>/HomeControll</url-pattern>
@@ -282,6 +286,10 @@
     <servlet-mapping>
         <servlet-name>EditAccountKH</servlet-name>
         <url-pattern>/EditAccountKH</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaginControl</servlet-name>
+        <url-pattern>/paging</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

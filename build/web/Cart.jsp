@@ -134,8 +134,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Ngày đặt</label>
-                                <!--<div name="ngaydat" id="current-time" class="form-control"></div>-->
-                                <input name="ngaydat" type="date" class="form-control" required>
+                                <div name="ngaydat" id="current-time" class="form-control" readonly required></div>
+                                <!--<input name="ngaydat" type="date" class="form-control" required>-->
                             </div>
                             <div class="form-group">
                                 <label>Ngày giao</label>

@@ -20,54 +20,55 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="css/manager.css" rel="stylesheet" type="text/css"/>
-        <style>
-            img{
-                width: 200px;
-                height: 120px;
-            }
-            .container{
-                width: 1245px;
-            }
+        <jsp:useBean id="a" class="dao.DAO" scope="request"></jsp:useBean>
+            <style>
+                img{
+                    width: 200px;
+                    height: 120px;
+                }
+                .container{
+                    width: 1245px;
+                }
 
-        </style>
-    <body>
-        <div class="container">
-            <div class="table-wrapper">
-                <div class="table-title">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h2>Manage <b>Bill</b></h2>
-                        </div>
-                        <div class="col-sm-6">
+            </style>
+        <body>
+            <div class="container">
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h2>Manage <b>Bill</b></h2>
+                            </div>
+                            <div class="col-sm-6">
 
-                            <a href="LayDonHangDTT" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Đơn hàng đã thanh toán</span></a>
-                            <a href="LayDonHangCTT" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Đơn hàng chưa thanh toán</span></a>
-                            <!--<a href="LayDonHangControll" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Tất cả đơn hàng</span></a>-->
+                                <a href="LayDonHangDTT" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Đơn hàng đã thanh toán</span></a>
+                                <a href="LayDonHangCTT" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Đơn hàng chưa thanh toán</span></a>
+                                <!--<a href="LayDonHangControll" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Tất cả đơn hàng</span></a>-->
+                            </div>
                         </div>
                     </div>
-                </div>
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="selectAll">
-                                    <label for="selectAll"></label>
-                                </span>
-                            </th>
-                            <th>Mã đơn</th>
-                            <th>Ngày đặt </th>
-                            <th>ngày giao</th>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class="custom-checkbox">
+                                        <input type="checkbox" id="selectAll">
+                                        <label for="selectAll"></label>
+                                    </span>
+                                </th>
+                                <th>Mã đơn</th>
+                                <th>Ngày đặt </th>
+                                <th>ngày giao</th>
 
-                            <th>Số điện thoại</th>
-                            <th>Địa chỉ giao</th><!-- comment -->
-                            <th>Mã khách hàng</th>
-                            <th>Trạng thái</th>
+                                <th>Số điện thoại</th>
+                                <th>Địa chỉ giao</th><!-- comment -->
+                                <th>Mã khách hàng</th>
+                                <th>Trạng thái</th>
 
 
-                        </tr>
+                            </tr>
 
-                    </thead>
+                        </thead>
 
                     <c:forEach items="${listC}" var="o">
                         <tbody>
@@ -97,27 +98,24 @@
 
 
                 <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Previous</a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                    <ul class="pagination">   
+                        <c:forEach begin="1" end="${a.numberPageDH}" var="i">
+                            <li class="page-item active"><a class="page-link" href="LayDonHangControll?index=${i}">${i}</a></li>
+                            </c:forEach>
                     </ul>
                 </div>
+
             </div>
+            <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
         </div>
-        
-        
+
+
 
 
 
 
         <!-- Delete Modal HTML -->
-        <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
+
 
         <script src="js/manager.js" type="text/javascript"></script>
         <script>
