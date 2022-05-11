@@ -35,9 +35,13 @@ public class LayDonHangControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException,Exception {
         response.setContentType("text/html;charset=UTF-8");
-        String madon = request.getParameter("pmadon");
+        String index = request.getParameter("index");
+       if(index==null){
+           index = "1";
+       }
+       int indexPage = Integer.parseInt(index);
         DAO dao = new DAO();
-        List<DonHang> list = dao.getDonHang();
+        List<DonHang> list = dao.getDonHang1(indexPage);
         
         
         request.setAttribute("listC",list); 

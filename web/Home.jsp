@@ -13,45 +13,45 @@
         <!------ Include the above in your HEAD tag ---------->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        
-        <style>
-        .currSign:after {
-            content: ' VNÐ';
-        }
-    </style>
-        
-    </head>
-    
-    <body>
-        
-       
-        
-        
+        <jsp:useBean id="a" class="dao.DAO" scope="request"></jsp:useBean>
+            <style>
+                .currSign:after {
+                    content: ' VNÐ';
+                }
+            </style>
+
+        </head>
+
+        <body>
+
+
+
+
         <jsp:include page="Menu.jsp"></jsp:include>
         <jsp:include page="Banner.jsp"></jsp:include>
-       
-        
-        
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="HomeControll">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Category</a></li>
-                            <li class="breadcrumb-item active" aria-current="#">Sub-category</li>
-                        </ol>
-                    </nav>
+
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="HomeControll">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Category</a></li>
+                                <li class="breadcrumb-item active" aria-current="#">Sub-category</li>
+                            </ol>
+                        </nav>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-       
-        <div class="container">
-            <div class="row">
-            <jsp:include page="Left.jsp"></jsp:include>
-                <div class="col-sm-9">
-                    <div class="row">
+
+
+            <div class="container">
+                <div class="row">
+                <jsp:include page="Left.jsp"></jsp:include>
+                    <div class="col-sm-9">
+                        <div class="row">
                         <c:forEach items="${listP}" var="o">
                             <div class="col-12 col-md-6 col-lg-4">
                                 <div class="card">
@@ -63,7 +63,7 @@
                                             <div class="col">
                                                 <p class="btn btn-danger btn-block myDIV">${o.giaban}</p>
                                             </div>
-                                              
+
                                             <div class="col">
                                                 <a href="cart?id=${o.malaptop}" class="btn btn-success btn-block">Thêm vào giỏ hàng</a>
                                             </div>
@@ -76,21 +76,29 @@
                 </div>
 
             </div>
-                         
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <c:forEach begin="1" end="${a.numberPage}" var="i">
+                        <li class="page-item"><a class="page-link" href="HomeControll?index=${i}">${i}</a></li>
+                        </c:forEach>
+                </ul>
+            </nav>
+
+
         </div>
-                          <jsp:include page="footer.jsp"></jsp:include>
-                          
-                          <script>
-        let x = document.querySelectorAll(".myDIV");
-        for (let i = 0, len = x.length; i < len; i++) {
-            let num = Number(x[i].innerHTML)
-                      .toLocaleString('en');
-            x[i].innerHTML = num;
-            x[i].classList.add("currSign");
-        }
-    </script>
-                       
+        <jsp:include page="footer.jsp"></jsp:include>
+
+        <script>
+            let x = document.querySelectorAll(".myDIV");
+            for (let i = 0, len = x.length; i < len; i++) {
+                let num = Number(x[i].innerHTML)
+                        .toLocaleString('en');
+                x[i].innerHTML = num;
+                x[i].classList.add("currSign");
+            }
+        </script>
+
     </body>
-    
-   
+
+
 </html>

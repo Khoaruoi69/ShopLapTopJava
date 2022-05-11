@@ -32,8 +32,13 @@ public class LayDonHangCTT extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        String index = request.getParameter("index");
+       if(index==null){
+           index = "1";
+       }
+       int indexPage = Integer.parseInt(index);
         DAO dao = new DAO();
-        List<DonHang> list = dao.getDonHangCTT();
+        List<DonHang> list = dao.getDonHangCTT(indexPage);
 
         request.setAttribute("listC", list);
         request.getRequestDispatcher("DonHangCTT.jsp").forward(request, response);

@@ -11,6 +11,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -37,15 +38,16 @@ public class MuahangControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-
-        String ngaydat = request.getParameter("ngaydat");
+        Date date = new Date();
+        Format formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String ngaydat = formatter.format(date);
         String ngaygiao = request.getParameter("ngaygiao");
         String dienthoai = request.getParameter("sodienthoai");
         String Diachigiao = request.getParameter("diachigiao");
         int maacc = Integer.parseInt(request.getParameter("maacc"));
 
         DAO dao = new DAO();
-        dao.insertDonHang(true, ngaydat, ngaygiao, dienthoai, Diachigiao, maacc);
+        dao.insertDonHang(false, ngaydat, ngaygiao, dienthoai, Diachigiao, maacc);
         
         
         

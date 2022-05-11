@@ -54,24 +54,24 @@
                             </div>
                             <div class="modal-body">					
                                 <div class="modal-body">
+                                     <c:forEach items="${list}" var="o">
                                     <div class="form-group d-none">
-                                        <label>Mã đơn</label>
-                                        <input value="${list.madon}" name="madon" type="text" class="form-control" readonly required>
+                                        <label style="color: red">Mã đơn</label>            
+                                        <input style="color: red" value="${o.madon}" name="madon" type="text" class="form-control" readonly required>
                                     </div>
-                                    
                                         <div class="form-group d-none">
                                             <label>Mã Laptop</label>
-                                            <input value="${list.malaptop}" name="malaptop" type="text" class="form-control" readonly required>
+                                            <input value="${o.malaptop}" name="malaptop" type="text" class="form-control" readonly required>
                                         </div>
                                         <div class="form-group d-none">
                                             <label>Số lượng</label>
-                                            <input value="${list.soluong}"name="soluong" type="text" class="form-control" readonly required>
+                                            <input value="${o.soluong}"name="soluong" type="text" class="form-control" readonly required>
                                         </div>
                                         <div class="form-group d-none">
                                             <label>Đơn giá</label>
-                                            <input value="${list.dongia}" name="giaban" type="text" class="form-control" readonly required>
+                                            <input value="${o.dongia}" name="giaban" type="text" class="form-control" readonly required>
                                         </div>
-                                    
+                                     </c:forEach>
                                 </div>
 
                             </div>

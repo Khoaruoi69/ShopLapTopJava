@@ -40,12 +40,16 @@ public class HomeControll extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
+        String index = request.getParameter("index");
+       if(index==null){
+           index = "1";
+       }
+       int indexPage = Integer.parseInt(index);
         DAO dao = new DAO();
         List<Hang> listH = dao.getAllHang();
-        List<LapTop> list = dao.getAllLaptop();
-        LapTop ListL = dao.getLast();
-        
-        
+      //  List<LapTop> list = dao.getAllLaptop();
+        LapTop ListL = dao.getLast();       
+         List<LapTop> list = dao.getPaging(indexPage);
         
         //b2: set data to jsp
         request.setAttribute("listP",list);

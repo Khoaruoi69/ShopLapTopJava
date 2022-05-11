@@ -112,7 +112,7 @@
         <div id="Muahang" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form action="XacNhanDonControll" method="post">
+                    <form action="order" method="post">
                         <div class="modal-header">						
                             <h4 class="modal-title">Sản phẩm bạn mua</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -125,7 +125,7 @@
                                 <input value="${donhang.madon}" name="madon" type="text" class="form-control" readonly required>
                             </div>
                                 <div class="form-group d-none">
-                                    <label>Mã Laptop</label>
+                                    <label style="color: red">Mã Laptop</label>
                                     <input value="${o.malaptop}" name="malaptop" type="text" class="form-control" readonly required>
                                 </div>
                                 <div class="form-group d-none">

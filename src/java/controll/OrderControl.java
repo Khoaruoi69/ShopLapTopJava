@@ -13,6 +13,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.math.BigDecimal;
 
 /**
  *
@@ -47,12 +48,23 @@ public class OrderControl extends HttpServlet {
             }
         }
         
+         for (LapTop o: list) {
+             if(o.getMalaptop()!=0){
+            int madon = Integer.parseInt(request.getParameter("madon"));
+            int malaptop = o.getMalaptop();
+            int soluong = o.getAmount();
+            BigDecimal giaban = o.getGiaban();
+            dao.insertCTDonHang(madon, malaptop, soluong, giaban);
+          
+        }
+         }
         
         for (Cookie o : arr) {
             o.setMaxAge(0);
             response.addCookie(o);
         }
-        response.sendRedirect("Home.jsp");
+       
+        response.sendRedirect("HomeControll");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

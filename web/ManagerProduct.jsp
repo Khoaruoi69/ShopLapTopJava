@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-     <head>
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,10 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
         <link href="css/manager.css" rel="stylesheet" type="text/css"/>
+        <jsp:useBean id="a" class="dao.DAO" scope="request"></jsp:useBean>
         <style>
             img{
                 width: 200px;
@@ -28,7 +31,7 @@
             .container{
                 width: 1300px;
             }
-            
+
         </style>
     <body>
         <div class="container">
@@ -38,10 +41,14 @@
                         <div class="col-sm-6">
                             <h2>Manage <b>Product</b></h2>
                         </div>
+
                         <div class="col-sm-6">
                             <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
-                           						
                         </div>
+
+
+
+
                     </div>
                 </div>
                 <table class="table table-striped table-hover">
@@ -65,13 +72,13 @@
                             <th>Màn hình</th>
                             <th>số lượng tồn</th>
                             <th>Actions</th>
-                            
-                 </tr>
-                        
+
+                        </tr>
+
                     </thead>
-                  
-                        <c:forEach items="${listP}" var="o">
-                             <tbody>
+
+                    <c:forEach items="${listP}" var="o">
+                        <tbody>
                             <tr>
                                 <td>
                                     <span class="custom-checkbox">
@@ -92,33 +99,29 @@
                                 <td>${o.pin}</td>
                                 <td>${o.manghing}</td>
                                 <td>${o.soluong}</td>
-                                
+
                                 <td>
                                     <a href="LoadControll?pmalaptop=${o.malaptop}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                     <a href="DeleteControll?pmalaptop=${o.malaptop}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                                 </td>
                             </tr>
-                            </tbody>
-                        </c:forEach>
-                   
+                        </tbody>
+                    </c:forEach>
+
                 </table>
                 <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Previous</a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                    </ul>
+                        <ul class="pagination">   
+                        <c:forEach begin="1" end="${a.numberPage1}" var="i">
+                                <li class="page-item active"><a class="page-link" href="ManagerControll?index=${i}">${i}</a></li>
+                                </c:forEach>
+                        </ul>
                 </div>
             </div>
+            <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
         </div>
-        
-        
-        
+
+
+
         <!-- Add Modal HTML -->
         <div id="addEmployeeModal" class="modal fade">
             <div class="modal-dialog">
@@ -141,27 +144,27 @@
                                 <label>Giá bán</label>
                                 <input name="price" type="text" class="form-control" required>
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label>CPU</label>
                                 <input name="CPU" type="text" class="form-control" required>
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label>GPU</label>
                                 <input name="GPU" type="text" class="form-control" required>
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label>RAM</label>
                                 <input name="RAM" type="text" class="form-control" required>
-                             </div>
+                            </div>
                             <div class="form-group">
                                 <label>Hardware</label>
                                 <input name="hardware" type="text" class="form-control" required>
-                             </div><!-- comment -->
-                              <div class="form-group">
+                            </div><!-- comment -->
+                            <div class="form-group">
                                 <label>Pin</label>
                                 <input name="pin" type="text" class="form-control" required>
                             </div>
-                              <div class="form-group">
+                            <div class="form-group">
                                 <label>Màn hình</label>
                                 <input name="manhinh" type="text" class="form-control" required>
                             </div>
@@ -169,21 +172,21 @@
                                 <label>Mô tả</label>
                                 <textarea name="mota" class="form-control" required></textarea>
                             </div>
-                           <div class="form-group">
+                            <div class="form-group">
                                 <label>Trạng thái</label>
                                 <input name="trangthai" type="text" class="form-control" required>
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label>Số lượng tồn</label>
                                 <input name="slt" type="text" class="form-control" required>
                             </div>
-                             
+
                             <div class="form-group">
                                 <label>Hãng Laptop</label>
                                 <select name="hang" class="form-select" aria-label="Default select example">
                                     <c:forEach items="${ListH}" var="o">
                                         <option value="${o.mahang}">${o.tenhang}</otption>
-                                    </c:forEach>
+                                        </c:forEach>
                                 </select>
                             </div>
 
@@ -196,13 +199,13 @@
                 </div>
             </div>
         </div>
-        
-                            
+
+
         <!-- Delete Modal HTML -->
-        <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
+        
         <script src="js/manager.js" type="text/javascript"></script>
         <script>
-               
+
         </script>
     </body>
 </html>
