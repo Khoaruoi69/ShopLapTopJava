@@ -124,7 +124,7 @@
                 <div class="modal-content">
                     <form action="MuahangControll" method="post">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Thông tin đơn hàng</h4>
+                            <h4 class="modal-title">Nhập thông tin đơn hàng</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
@@ -157,7 +157,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
 
                             <input type="submit" class="btn btn-success" value="Mua hàng">
                         </div>

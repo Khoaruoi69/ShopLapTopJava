@@ -37,7 +37,7 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h2>Manage <b>Bill</b></h2>
+                                <h2>Quản lý <b>hóa đơn</b></h2>
                             </div>
                             <div class="col-sm-6">
 
@@ -106,7 +106,7 @@
                 </div>
 
             </div>
-            <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
+            <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Thoát</a>
         </div>
 
 

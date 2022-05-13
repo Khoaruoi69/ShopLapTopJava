@@ -107,7 +107,7 @@
                 </div>
                 
             </div>
-            <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
+            <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Thoát</a>
         </div>
 
 

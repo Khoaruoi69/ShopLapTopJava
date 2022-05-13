@@ -91,7 +91,6 @@
                                 <td>${o.hardware}</td>
                                 <td>${o.pin}</td>
                                 <td>${o.manghing}</td>
-
                                 <td>${o.amount}</td>
 
                                 <!--<td>-->
@@ -118,15 +117,15 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">
-                            
+
                             <c:forEach items="${list}" var="o">
                                 <div class="form-group d-none">
-                                <label>Mã đơn</label>
-                                <input value="${donhang.madon}" name="madon" type="text" class="form-control" readonly required>
-                            </div>
+                                    <label>Mã đơn</label>
+                                    <input value="${donhang.madon}" name="madon" type="text" class="form-control" readonly required>
+                                </div>
                                 <div class="form-group d-none">
-                                    <label style="color: red">Mã Laptop</label>
-                                    <input value="${o.malaptop}" name="malaptop" type="text" class="form-control" readonly required>
+                                    <label style="color: red">Tên Laptop</label>
+                                    <input value="${o.tenlaptop}" name="malaptop" type="text" class="form-control" readonly required>
                                 </div>
                                 <div class="form-group d-none">
                                     <label>Số lượng</label>
@@ -136,24 +135,40 @@
                                     <label>Giá bán</label>
                                     <input value="${o.giaban}" name="giaban" type="text" class="form-control" readonly required>
                                 </div>
+<!--                                <div class="form-group d-none">
+                                    <label>To:</label> 
+                                    <input type="text" value="khoaruoi69@gmail.com"
+                                           class="form-control" name="to" placeholder="Enter Email">
+                                </div>
+                                <div class="form-group d-none">
+                                    <label>Subject:</label> 
+                                    <input type="text" value="Shop Laptop"
+                                           class="form-control" name="subject" placeholder="Enter Subject">
+                                </div>
+                                <div class="form-group d-none">
+                                    <label for="content">Content:</label>
+                                    <textarea  class="form-control" name="content">Cam on ban da mua hang</textarea>
+                                </div>-->
                             </c:forEach>
-
                         </div>
+
+
                         <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy đơn">
                             <input type="submit" class="btn btn-info" value="Xác nhận">
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        <!--//////////////////////////////////////////////////////////////////-->
 
 
 
 
 
         <!-- Delete Modal HTML -->
-        <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
+        <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Thoát</a>
         <script src="js/manager.js" type="text/javascript"></script>
         <script>
 

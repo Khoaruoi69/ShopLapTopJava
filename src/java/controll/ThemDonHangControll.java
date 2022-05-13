@@ -16,9 +16,9 @@ import jakarta.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import model.Account;
-import model.DonHang;
-import model.LapTop;
+import entity.Account;
+import entity.DonHang;
+import entity.LapTop;
 
 /**
  *

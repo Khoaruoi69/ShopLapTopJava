@@ -36,7 +36,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Manage <b>Account</b></h2>
+                            <h2>Quản lý <b> tài khoản</b></h2>
                         </div>
                         <div class="col-sm-6">
 
@@ -112,7 +112,7 @@
 
 
         <!-- Delete Modal HTML -->
-        <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
+        <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Thoát</a>
 
         <script src="js/manager.js" type="text/javascript"></script>
         <script>

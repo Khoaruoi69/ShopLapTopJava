@@ -18,7 +18,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.DonHang;
+import entity.DonHang;
 
 /**
  *
@@ -45,7 +45,6 @@ public class MuahangControll extends HttpServlet {
         String dienthoai = request.getParameter("sodienthoai");
         String Diachigiao = request.getParameter("diachigiao");
         int maacc = Integer.parseInt(request.getParameter("maacc"));
-
         DAO dao = new DAO();
         dao.insertDonHang(false, ngaydat, ngaygiao, dienthoai, Diachigiao, maacc);
         

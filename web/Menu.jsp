@@ -23,7 +23,7 @@
                         
                        <c:if test="${sessionScope.acc.admin== true}">
                         <li class="nav-item">
-                            <a style="color: rgb(255 255 255)" class="nav-link" href="LayDonHangControll">Manager Bill</a>
+                            <a style="color: rgb(255 255 255)" class="nav-link" href="LayDonHangControll">Quản lý hóa đơn</a>
                            
                         </li>
                         </c:if>
@@ -31,14 +31,14 @@
                         
                         <c:if test="${sessionScope.acc.admin== true}">
                         <li class="nav-item">
-                            <a style="color: rgb(255 255 255)" class="nav-link" href="ManagerAccount">Manager Account</a>
+                            <a style="color: rgb(255 255 255)" class="nav-link" href="ManagerAccount">Quản lý tài khoản</a>
                            
                         </li>
                         </c:if>
                         
                         <c:if test="${sessionScope.acc.sell== true}">
                         <li class="nav-item">
-                            <a style="color: rgb(255 255 255)" class="nav-link" href="ManagerControll">Manager Product</a>
+                            <a style="color: rgb(255 255 255)" class="nav-link" href="ManagerControll">Quản lý sản phẩm</a>
                         </li>
                         </c:if>
                         

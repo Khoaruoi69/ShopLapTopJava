@@ -46,7 +46,7 @@
                     <div class="modal-content">
                         <form action="EditAccountKH" method="post">
                             <div class="modal-header">						
-                                <h4 class="modal-title">Edit Account</h4>
+                                <h4 class="modal-title">Chỉnh sửa tài khoản</h4>
                                 <a class="close" href="HomeControll" type="button" class="btn btn-success" aria-hidden="true" >x</a>
                             </div>
                             <div class="modal-body">					
@@ -61,7 +61,7 @@
                                         </div>
                                     <div class="form-group">                                  
                                         <label>Mật khẩu </label>
-                                        <input value="${listA.matkhau}" name="matkhau" type="text" class="form-control"  required>
+                                        <input value="***********" name="matkhau" type="text" class="form-control"  required>
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
@@ -75,7 +75,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" value="Edit">
+                                <input type="submit" class="btn btn-success" value="Thoát">
                                 <!--<a herf="LayDonHangControll" type="submit" class="btn btn-success">Edit</a>-->
                             </div>
                         </form>
