@@ -39,7 +39,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Manage <b>Product</b></h2>
+                            <h2>Quản lý<b> sản phẩm</b></h2>
                         </div>
 
                         <div class="col-sm-6">
@@ -117,7 +117,7 @@
                         </ul>
                 </div>
             </div>
-            <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
+            <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Thoát</a>
         </div>
 
 
@@ -128,7 +128,7 @@
                 <div class="modal-content">
                     <form action="AddControll" method="post">
                         <div class="modal-header">						
-                            <h4 class="modal-title">Add Product</h4>
+                            <h4 class="modal-title">Thêm sản phẩm</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
@@ -192,8 +192,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-success" value="Add">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+                            <input type="submit" class="btn btn-success" value="Thêm">
                         </div>
                     </form>
                 </div>

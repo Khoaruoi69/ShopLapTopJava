@@ -34,7 +34,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Information <b>Bill</b></h2>
+                            <h2>Thông tin <b>hóa đơn</b></h2>
                         </div>
                         <div class="col-sm-6">
                         </div>
@@ -48,7 +48,7 @@
                     <div class="modal-content">
                         <form action="InformationDonHang" method="#">
                             <div class="modal-header">						
-                                <h4 class="modal-title">Thông tin đơn hàng</h4>
+                                <h4 class="modal-title">Thông tin hóa đơn</h4>
                                 <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>-->
                                 <a class="close" href="LayDonHangControll" type="button" class="btn btn-success" aria-hidden="true" >x</a>
                             </div>
@@ -76,7 +76,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                        <a class="navbar-brand" href="LayDonHangControll" type="button" class="btn btn-success" >Exit</a>
+                                        <a class="navbar-brand" href="LayDonHangControll" type="button" class="btn btn-success" >Thoát</a>
                             </div>
                         </form>
                     </div>

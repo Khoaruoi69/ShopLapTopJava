@@ -1,7 +1,7 @@
 package controll;
 
 import dao.DAO;
-import model.LapTop;
+import entity.LapTop;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;

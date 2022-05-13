@@ -39,7 +39,7 @@
                 <div class="modal-content">
                     <form>
                         <div class="modal-header">						
-                            <h4 class="modal-title">Edit Employee</h4>
+                            <h4 class="modal-title">Chỉnh sửa đơn hàng</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
                         <div class="modal-body">					
@@ -103,8 +103,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-info" value="Save">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+                            <input type="submit" class="btn btn-info" value="Lưu">
                         </div>
                     </form>
                 </div>
@@ -112,7 +112,7 @@
         </div>
                             
         <!-- Delete Modal HTML -->
-        <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Exit</a>
+        <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Thoát</a>
         <script src="js/manager.js" type="text/javascript"></script>
         <script>
                

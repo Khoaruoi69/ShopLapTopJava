@@ -37,8 +37,8 @@
                     <div class="col">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="HomeControll">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Category</a></li>
+                                <li class="breadcrumb-item"><a href="HomeControll">Laptop</a></li>
+                                <li class="breadcrumb-item"><a href="#">Hãng</a></li>
                                 <li class="breadcrumb-item active" aria-current="#">Sub-category</li>
                             </ol>
                         </nav>

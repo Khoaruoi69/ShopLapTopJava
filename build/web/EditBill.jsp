@@ -46,7 +46,7 @@
                     <div class="modal-content">
                         <form action="EditDonHang" method="post">
                             <div class="modal-header">						
-                                <h4 class="modal-title">Edit Bill</h4>
+                                <h4 class="modal-title">Chỉnh sửa hóa đơn</h4>
                                 <a class="close" href="LayDonHangControll" type="button" class="btn btn-success" aria-hidden="true" >x</a>
                             </div>
                             <div class="modal-body">					
@@ -86,7 +86,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" value="Edit">
+                                <input type="submit" class="btn btn-success" value="Thoát">
                                 <!--<a herf="LayDonHangControll" type="submit" class="btn btn-success">Edit</a>-->
                             </div>
                         </form>

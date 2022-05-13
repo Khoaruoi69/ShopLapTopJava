@@ -34,7 +34,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Edit <b>Product</b></h2>
+                            <h2>Chỉnh sửa<b> sản phẩm</b></h2>
                         </div>
                         <div class="col-sm-6">
                         </div>
@@ -46,7 +46,7 @@
                     <div class="modal-content">
                         <form action="EditControll" method="post">
                             <div class="modal-header">						
-                                <h4 class="modal-title">Edit Product</h4>
+                                <h4 class="modal-title">Chỉnh sửa sản phẩm</h4>
                                 <a class="close" href="ManagerControll" type="button" class="btn btn-success" aria-hidden="true" >x</a>
                             </div>
                             <div class="modal-body">					
@@ -117,7 +117,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" value="Edit">
+                                <input type="submit" class="btn btn-success" value="Thoát">
                             </div>
                         </form>
                     </div>

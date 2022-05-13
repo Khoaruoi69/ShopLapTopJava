@@ -50,7 +50,7 @@
                 <input name="repass" type="password" id="user-repeatpass" class="form-control" placeholder="Repeat Password" required autofocus="">
 
                 <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Đăng ký  </button>
-                <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Back</a>
+                <a href="HomeControll" id="cancel_signup"><i class="fas fa-angle-left"></i> Thoát</a>
             </form>
             <br>
 

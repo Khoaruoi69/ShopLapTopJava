@@ -5,9 +5,9 @@
 package dao;
 
 import Context.DBContext;
-import model.Hang;
-import model.Account;
-import model.LapTop;
+import entity.Hang;
+import entity.Account;
+import entity.LapTop;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,8 +15,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import model.ChiTietDonHang;
-import model.DonHang;
+import entity.ChiTietDonHang;
+import entity.DonHang;
 
 import sun.misc.Signal;
 
