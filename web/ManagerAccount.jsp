@@ -82,8 +82,18 @@
                                 <td>${o.matkhau}</td>
                                 <td>${o.email}</td>
                                 <td>${o.dienthoai}</td>
-                                <td>${o.admin}</td>
-                                <td>${o.sell}</td>
+                                <c:if test="${o.admin==true}">
+                                <td style="color: red">X</td>
+                                </c:if>
+                                <c:if test="${o.admin==false}">
+                                <td> </td>
+                                </c:if>
+                                <c:if test="${o.sell==true}">
+                                    <td style="color: red">X</td>
+                                </c:if>
+                                <c:if test="${o.sell==false}">
+                                    <td> </td>
+                                </c:if>  
                                 <td>
                                     <a href="LoadAccount?maacc=${o.maacc}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
                                     <!--<a  href="InformationDonHang?pmadon=${o.maacc}" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Information">info</i></a>-->

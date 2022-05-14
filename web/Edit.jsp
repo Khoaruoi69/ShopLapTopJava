@@ -95,7 +95,7 @@
                                 <label>Mô tả</label>
                                 <textarea name="mota" class="form-control" required>${detail.mota}</textarea>
                             </div>
-                           <div class="form-group">
+                           <div class="form-group hidden">
                                 <label>Trạng thái</label>
                                 <input value="${detail.trangthai}" name="trangthai" type="text" class="form-control" required>
                             </div>

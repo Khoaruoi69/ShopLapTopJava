@@ -60,8 +60,8 @@
                                         <input style="color: red" value="${o.madon}" name="madon" type="text" class="form-control" readonly required>
                                     </div>
                                         <div class="form-group d-none">
-                                            <label>Mã Laptop</label>
-                                            <input value="${o.malaptop}" name="malaptop" type="text" class="form-control" readonly required>
+                                            <label>Tên Laptop</label>
+                                            <input value="${o.tenlaptop}" name="malaptop" type="text" class="form-control" readonly required>
                                         </div>
                                         <div class="form-group d-none">
                                             <label>Số lượng</label>

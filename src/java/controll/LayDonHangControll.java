@@ -5,6 +5,7 @@
 package controll;
 
 import dao.DAO;
+import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -42,8 +43,6 @@ public class LayDonHangControll extends HttpServlet {
        int indexPage = Integer.parseInt(index);
         DAO dao = new DAO();
         List<DonHang> list = dao.getDonHang1(indexPage);
-        
-        
         request.setAttribute("listC",list); 
         request.getRequestDispatcher("ManagerBill.jsp").forward(request, response);
     }

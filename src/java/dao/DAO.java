@@ -445,7 +445,6 @@ public class DAO {
             ps.setString(4, dienthoai);
             ps.setString(5, Diachigiao);
             ps.setInt(6, maacc);
-
             ps.executeUpdate();
 
         } catch (Exception e) {
@@ -476,14 +475,17 @@ public class DAO {
         }
         return list;
     }
+    ////////////
+    
 
     // don hang da thanh toan 
     // lay don hang 
     public List<DonHang> getDonHangDTT(int index) {
         List<DonHang> list = new ArrayList<>();
-        String query = "select * from DonHang \n" +
-                        "where thanhtoan= '1' \n" +
-                        "order by madon offset ? rows fetch first 10 rows only ";
+        String query = "select d.madon, d.thanhtoan, d.ngaydat, d.ngaygiao,d.Diachigiao, a.dienthoai, a.maacc, a.hoten\n" +
+                        "from Account a, DonHang d\n" +
+                        " where d.thanhtoan='1' and a.maacc=d.maacc\n" +
+                        "order by madon offset ? rows fetch first 10 rows only";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -497,7 +499,8 @@ public class DAO {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getString(6),
-                        rs.getInt(7))
+                        rs.getInt(7),
+                        rs.getString(8))
                 );
             }
         } catch (Exception e) {
@@ -509,9 +512,10 @@ public class DAO {
     // don hang chua thanh toan
     public List<DonHang> getDonHangCTT(int index) {
         List<DonHang> list = new ArrayList<>();
-        String query = "select * from DonHang \n" +
-                        "where thanhtoan= '0' \n" +
-                        "order by madon offset ? rows fetch first 10 rows only ";
+        String query = "select d.madon, d.thanhtoan, d.ngaydat, d.ngaygiao,d.Diachigiao, a.dienthoai, a.maacc, a.hoten\n" +
+                        "from Account a, DonHang d\n" +
+                        " where d.thanhtoan='0' and a.maacc=d.maacc\n" +
+                        "order by madon offset ? rows fetch first 10 rows only";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -525,7 +529,8 @@ public class DAO {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getString(6),
-                        rs.getInt(7))
+                        rs.getInt(7),
+                        rs.getString(8))
                 );
             }
         } catch (Exception e) {
@@ -580,8 +585,9 @@ public class DAO {
     // lay thong tin chi tiet don hang
     public List<ChiTietDonHang> getCTTDonHang(String madon) {
         List<ChiTietDonHang> list = new ArrayList<>();
-        String query = "select * from ChiTietDonHang\n"
-                + "where madon = ?";
+        String query = "select c.madon, c.malaptop, c.soluong, c.dongia, l.tenlaptop\n" +
+                        "from Laptop l, ChiTietDonHang c\n" +
+                        "where l.malaptop=c.malaptop and c.madon = ?";
         
         try {
             conn = new DBContext().getConnection();//mo ket noi voi sql
@@ -593,7 +599,8 @@ public class DAO {
                         rs.getInt(1),
                         rs.getInt(2),
                         rs.getInt(3),
-                        rs.getBigDecimal(4)));
+                        rs.getBigDecimal(4),
+                        rs.getString(5)));
             }
         } catch (Exception e) {
         }
@@ -839,7 +846,7 @@ public class DAO {
         return 0;
     }
     /// phan trnang don hang
-    public List<DonHang> getDonHang1(int index) {
+    /*public List<DonHang> getDonHang1(int index) {
         List<DonHang> list = new ArrayList<>();
         String query = "select * from DonHang order by madon offset ? rows fetch first 10 rows only";
         try {
@@ -856,6 +863,33 @@ public class DAO {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getInt(7))
+                );
+            }
+        } catch (Exception e) {
+
+        }
+        return list;
+    }*/
+    
+    //////////
+    public List<DonHang> getDonHang1(int index) {
+        List<DonHang> list = new ArrayList<>();
+        String query = "select d.madon, d.thanhtoan, d.ngaydat, d.ngaygiao,d.Diachigiao, a.dienthoai, a.maacc, a.hoten from Account a, DonHang d where a.maacc=d.maacc order by madon offset ? rows fetch first 10 rows only";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+             ps.setInt(1, (index -1)*10);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(
+                        rs.getInt(1),
+                        rs.getBoolean(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        rs.getString(8))
                 );
             }
         } catch (Exception e) {
@@ -908,7 +942,7 @@ public class DAO {
     
     public static void main(String[] args) {
         DAO dao = new DAO();
-         List<ChiTietDonHang> list = dao.getCTTDonHang("68");
+         List<DonHang> list = dao.getDonHang1(1);
        // Account list = dao.getMaAccount("4");
         System.out.println(list);
 

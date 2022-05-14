@@ -21,7 +21,7 @@
                             <img class="img-fluid" src="${p.hinh}" />
                             <h5 class="card-title show_txt"><a href="DetailControll?pmalaptop=${p.malaptop}" title="View Product">${p.tenlaptop}</a></h5>
                             <p class="card-text">${p.mota}</p>
-                            <p class="btn-danger bloc_left_price myDIV">${p.giaban}</p>
+                            <p class=" bloc_left_price myDIV">${p.giaban}</p>
                             <!--bloc_left_price--> 
                         </div>
                     </div>

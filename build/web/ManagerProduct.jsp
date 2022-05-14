@@ -43,11 +43,8 @@
                         </div>
 
                         <div class="col-sm-6">
-                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Product</span></a>
+                            <a href="#addEmployeeModal"  class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Thêm sản phẩm mới</span></a>
                         </div>
-
-
-
 
                     </div>
                 </div>
@@ -172,9 +169,9 @@
                                 <label>Mô tả</label>
                                 <textarea name="mota" class="form-control" required></textarea>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group hidden">
                                 <label>Trạng thái</label>
-                                <input name="trangthai" type="text" class="form-control" required>
+                                <input value="true" name="trangthai" type="text" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label>Số lượng tồn</label>
@@ -199,6 +196,7 @@
                 </div>
             </div>
         </div>
+     
 
 
         <!-- Delete Modal HTML -->

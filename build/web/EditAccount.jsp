@@ -34,7 +34,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Edit <b>Account</b></h2>
+                            <h2>Chỉnh sửa<b>tài khoản</b></h2>
                         </div>
                         <div class="col-sm-6">
                         </div>
@@ -86,7 +86,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" value="Thoát">
+                                <input type="submit" class="btn btn-success" value="Chỉnh sửa">
                                 <!--<a herf="LayDonHangControll" type="submit" class="btn btn-success">Edit</a>-->
                             </div>
                         </form>

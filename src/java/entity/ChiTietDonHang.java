@@ -15,9 +15,19 @@ public class ChiTietDonHang {
     private int malaptop;
     private int soluong;
     private BigDecimal dongia;
+    private String tenlaptop;
 
     public ChiTietDonHang() {
     }
+
+    public ChiTietDonHang(int madon, int malaptop, int soluong, BigDecimal dongia, String tenlaptop) {
+        this.madon = madon;
+        this.malaptop = malaptop;
+        this.soluong = soluong;
+        this.dongia = dongia;
+        this.tenlaptop = tenlaptop;
+    }
+    
 
     public ChiTietDonHang(int madon, int malaptop, int soluong, BigDecimal dongia) {
         this.madon = madon;
@@ -56,6 +66,14 @@ public class ChiTietDonHang {
 
     public void setDongia(BigDecimal dongia) {
         this.dongia = dongia;
+    }
+
+    public String getTenlaptop() {
+        return tenlaptop;
+    }
+
+    public void setTenlaptop(String tenlaptop) {
+        this.tenlaptop = tenlaptop;
     }
 
     @Override

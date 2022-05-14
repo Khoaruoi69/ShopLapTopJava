@@ -39,7 +39,6 @@ public class LayDonHangCTT extends HttpServlet {
        int indexPage = Integer.parseInt(index);
         DAO dao = new DAO();
         List<DonHang> list = dao.getDonHangCTT(indexPage);
-
         request.setAttribute("listC", list);
         request.getRequestDispatcher("DonHangCTT.jsp").forward(request, response);
     }

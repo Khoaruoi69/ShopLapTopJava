@@ -33,8 +33,7 @@ public class ManagerAccount extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         DAO dao = new DAO();
-        List<Account> ac = dao.getAccount();
-        
+        List<Account> ac = dao.getAccount();        
         request.setAttribute("listA", ac);
         
         request.getRequestDispatcher("ManagerAccount.jsp").forward(request, response);

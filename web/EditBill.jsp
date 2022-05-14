@@ -34,7 +34,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2>Edit <b>Bill</b></h2>
+                            <h2>Chỉnh sửa<b> hóa đơn</b></h2>
                         </div>
                         <div class="col-sm-6">
                         </div>
@@ -56,9 +56,10 @@
                                         <input value="${listPP.madon}" name="madon" type="text" class="form-control" readonly required>
                                     </div>
                                     <div class="form-group">
-                                        <label>Trạng thái</label>
-                                        <input value="${listPP.thanhtoan}" name="trangthai" type="text" class="form-control" required>
-                                        </div>
+                                        <label>Mã khách hàng</label>
+                                        <input value="${listPP.maacc}" name="maacc" type="text" class="form-control" readonly required>
+                                    </div>
+
                                     <div class="form-group">                                  
                                         <label>Ngày đặt </label>
                                         <input value="${listPP.ngaydat}" name="ngaydat" type="text" class="form-control" readonly required>
@@ -75,18 +76,48 @@
                                         <label>Địa chỉ giao</label>
                                         <input value="${listPP.diachigiao}" name="diachigiao" type="text" class="form-control" required>
                                     </div>
+                                    <!--                                    <div class="form-group">
+                                                                            <label>Trạng thái</label>
+                                                                            <input value="${listPP.thanhtoan}" name="trangthai" type="text" class="form-control" required>
+                                                                        </div>-->
                                     <div class="form-group">
-                                        <label>Mã khách hàng</label>
-                                        <input value="${listPP.maacc}" name="maacc" type="text" class="form-control" readonly required>
+                                        <label>Trạng thái</label>
+                                        <c:if test="${listPP.thanhtoan==true}">
+                                            <div class="form-check">
+                                                <input class="form-check-input" value="true"type="radio" name="trangthai" id="flexRadioDefault1" checked>
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Đã thanh toán
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                            <input class="form-check-input"  value="false" type="radio" name="trangthai" id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Chưa thanh toán
+                                            </label>
+                                        </div>
+                                        </c:if>
+                                        <c:if test="${listPP.thanhtoan==false}">
+                                        <div class="form-check">
+                                                <input class="form-check-input" value="true" type="radio" name="trangthai" id="flexRadioDefault1">
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    Đã thanh toán
+                                                </label>
+                                            </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" value="false" type="radio" name="trangthai" id="flexRadioDefault2" checked>
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                                Chưa thanh toán
+                                            </label>
+                                        </div>
+                                        </c:if>
                                     </div>
-
 
 
                                 </div>
 
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" value="Thoát">
+                                <input type="submit" class="btn btn-success" value="Chỉnh sửa">
                                 <!--<a herf="LayDonHangControll" type="submit" class="btn btn-success">Edit</a>-->
                             </div>
                         </form>
