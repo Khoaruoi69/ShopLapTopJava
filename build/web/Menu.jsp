@@ -41,6 +41,11 @@
                             <a style="color: rgb(255 255 255)" class="nav-link" href="ManagerControll">Quản lý sản phẩm</a>
                         </li>
                         </c:if>
+                        <c:if test="${sessionScope.acc != null and sessionScope.acc.admin==false and sessionScope.acc.sell== false}">                          
+                            <li class="nav-item">
+                                <a style="color: rgb(255 255 255)" class="nav-link" href="DonHangKH?maac=${sessionScope.acc.maacc}">Lịch sử mua hàng</a>
+                            </li>
+                        </c:if>
                         
                         <form action="SearchControll" method="post" class="form-inline my-2 my-lg-0">
                              <div class="input-group input-group-sm">

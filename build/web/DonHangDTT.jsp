@@ -101,9 +101,7 @@
 
                 </table>
 
-               
-
-
+              
                 <div class="clearfix">
                     <ul class="pagination">   
                     <c:forEach begin="1" end="${a.numberPageDTT}" var="i">
@@ -114,10 +112,6 @@
             </div>
              <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Thoát</a>
         </div>
-
-
-
-
         <!-- Delete Modal HTML -->
        
         <script src="js/manager.js" type="text/javascript"></script>

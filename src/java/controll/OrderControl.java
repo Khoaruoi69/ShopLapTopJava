@@ -14,6 +14,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.Properties;
 import java.util.logging.Level;
@@ -106,11 +107,12 @@ public class OrderControl extends HttpServlet {
     
             ////////////////////////////////////////////////
             */
-        for (Cookie o : arr) {
+      /*  for (Cookie o : arr) {
             o.setMaxAge(0);
             response.addCookie(o);
-        }
-        response.sendRedirect("HomeControll");
+        }*/
+      
+        response.sendRedirect("GiaoHangSuccess.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

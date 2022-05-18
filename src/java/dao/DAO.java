@@ -937,12 +937,38 @@ public class DAO {
         }
         return 0;
     }
+    //////////////////////////////////////////////
+   
+    //////////////////////////////////////////////////
+    public List<DonHang> getDonHangKH(String maacc) {
+        List<DonHang> list = new ArrayList<>();
+        String query = "select * from DonHang where maacc= ? ORDER BY ngaydat DESC";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, maacc);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new DonHang(
+                        rs.getInt(1),
+                        rs.getBoolean(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7)));
+            }
+        } catch (Exception e) {
+
+        }
+        return list;
+    }
 
         
     
     public static void main(String[] args) {
         DAO dao = new DAO();
-         List<DonHang> list = dao.getDonHang1(1);
+         List<DonHang> list = dao.getDonHangKH("4");
        // Account list = dao.getMaAccount("4");
         System.out.println(list);
 

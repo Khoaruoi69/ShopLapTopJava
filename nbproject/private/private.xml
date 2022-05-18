@@ -3,13 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/web/Left.jsp</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/web/footer.jsp</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/web/Menu.jsp</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/web/EditAccountKH.jsp</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/web/EditBill.jsp</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/EditDonHang.java</file>
-            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/web/EditAccount.jsp</file>
+            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/OrderControl.java</file>
+            <file>file:/C:/Users/Khoa/Desktop/DoAN_JJJAVA/WebLaptop/src/java/controll/LogoutControll.java</file>
         </group>
     </open-files>
 </project-private>

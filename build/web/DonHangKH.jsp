@@ -1,6 +1,6 @@
-<%--
-    Document   : ManagerBill
-    Created on : May 4, 2022, 9:38:55 PM
+<%-- 
+    Document   : DonHangKH
+    Created on : May 18, 2022, 10:09:45 PM
     Author     : Khoa
 --%>
 
@@ -32,85 +32,59 @@
 
             </style>
         <body>
+           
+            
             <div class="container">
                 <div class="table-wrapper">
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-6">
-                                <h2>Quản lý <b>hóa đơn</b></h2>
+                                <h2>Lịch sử<b> mua hàng</b></h2>
                             </div>
-                            <div class="col-sm-6">
-
-                                <a href="LayDonHangDTT" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Đơn hàng đã thanh toán</span></a>
-                                <a href="LayDonHangCTT" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Đơn hàng chưa thanh toán</span></a>
-                                <!--<a href="LayDonHangControll" type="button" class="btn btn-primary" ><i class="material-icons">feed</i><span>Tất cả đơn hàng</span></a>-->
+                            <div class="col-sm-6">                               
                             </div>
                         </div>
                     </div>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="selectAll">
-                                        <label for="selectAll"></label>
-                                    </span>
-                                </th>
+                                
                                 <th>Mã đơn</th>
                                 <th>Ngày đặt </th>
                                 <th>ngày giao</th>
-
                                 <th>Số điện thoại</th>
                                 <th>Địa chỉ giao</th><!-- comment -->
                                 <th>Khách hàng</th>
                                 <th>Trạng thái</th>
-
-
                             </tr>
 
                         </thead>
 
-                    <c:forEach items="${listC}" var="o">
+                    <c:forEach items="${listA}" var="o">
                         <tbody>
                             <tr>
-                                <td>
-                                    <span class="custom-checkbox">
-                                        <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                        <label for="checkbox1"></label>
-                                    </span>
-                                </td>
+                                
                                 <td>${o.madon}</td>
                                 <td>${o.ngaydat}</td>
                                 <td>${o.ngaygiao}</td>
                                 <td>${o.dienthoai}</td>
                                 <td>${o.diachigiao}</td>
-                                <td>${o.hoten}</td>
+                                <td>${o.maacc}</td>
                                 <c:if test="${o.thanhtoan==true}">
                                 <td>Đã thanh toán</td>
                                 </c:if>
                                 <c:if test="${o.thanhtoan==false}">
                                     <td style="color: red">Chưa thanh toán</td>
-                                </c:if>
-                                
+                                </c:if>                               
                                 <td>
-                                    <a href="LoadBill?pmadon=${o.madon}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                    <a  href="InformationDonHang?pmadon=${o.madon}" class="btn-close" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Information">info</i></a>
+                                    <!--<a href="LoadBill?pmadon=${o.madon}"  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>-->
+                                    <a  href="InformationDonHangKH?pmadon=${o.madon}" class="btn-close" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Information">info</i></a>
                                 </td>
                             </tr>
                         </tbody>
                     </c:forEach>
 
                 </table>
-
-
-                <div class="clearfix">
-                    <ul class="pagination">   
-                        <c:forEach begin="1" end="${a.numberPageDH}" var="i">
-                            <li class="page-item active"><a class="page-link" href="LayDonHangControll?index=${i}">${i}</a></li>
-                            </c:forEach>
-                    </ul>
-                </div>
-
             </div>
             <a class="navbar-brand" href="HomeControll" type="button" class="btn btn-success" >Thoát</a>
         </div>

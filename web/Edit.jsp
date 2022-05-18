@@ -117,7 +117,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" value="Thoát">
+                                <input type="submit" class="btn btn-success" value="chỉnh sửa">
                             </div>
                         </form>
                     </div>
